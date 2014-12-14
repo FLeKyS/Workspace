@@ -1,0 +1,77 @@
+\select@language {spanish}
+\contentsline {chapter}{\numberline {1}Introducci\'on}{1}
+\contentsline {section}{\numberline {1.1}\IeC {\textquestiondown }Qu\'e es una aventura gr\'afica?}{1}
+\contentsline {section}{\numberline {1.2}\IeC {\textquestiondown }Qu\'e signica e-learning?}{2}
+\contentsline {section}{\numberline {1.3}Proyectos similares}{2}
+\contentsline {section}{\numberline {1.4}Tecnolog\IeC {\'\i }as implicadas}{3}
+\contentsline {subsection}{\numberline {1.4.1}Java~\cite {Java}}{4}
+\contentsline {subsection}{\numberline {1.4.2}Android~\cite {Android}}{5}
+\contentsline {subsection}{\numberline {1.4.3}Eadventure~\cite {eAdventure}}{6}
+\contentsline {subsection}{\numberline {1.4.4}Eclipse IDE (Integrated Development Environment)}{7}
+\contentsline {section}{\numberline {1.5}Estructura de la memoria}{8}
+\contentsline {chapter}{\numberline {2}Objetivos}{11}
+\contentsline {section}{\numberline {2.1}Descripci\'on del problema}{11}
+\contentsline {subsection}{\numberline {2.1.1}Comparaci\'on eLearnT-eAdventureEditor}{11}
+\contentsline {section}{\numberline {2.2}Requisitos}{14}
+\contentsline {section}{\numberline {2.3}Modelo de desarrollo}{14}
+\contentsline {chapter}{\numberline {3}Dise\~no}{17}
+\contentsline {section}{\numberline {3.1}Funcionamiento general}{17}
+\contentsline {section}{\numberline {3.2}Funcionalidades}{19}
+\contentsline {subsection}{\numberline {3.2.1}Aventura}{19}
+\contentsline {subsubsection}{\numberline {3.2.1.1}Crear}{20}
+\contentsline {subsubsection}{\numberline {3.2.1.2}Crear de Nuevo}{20}
+\contentsline {subsubsection}{\numberline {3.2.1.3}Modificar}{21}
+\contentsline {subsubsection}{\numberline {3.2.1.4}Eliminar}{22}
+\contentsline {subsubsection}{\numberline {3.2.1.5}Enviar}{23}
+\contentsline {subsubsection}{\numberline {3.2.1.6}Finalizar}{24}
+\contentsline {subsection}{\numberline {3.2.2}Escena}{24}
+\contentsline {subsubsection}{\numberline {3.2.2.1}Obtener}{25}
+\contentsline {subsubsection}{\numberline {3.2.2.2}Modificar}{25}
+\contentsline {subsubsection}{\numberline {3.2.2.3}Eliminar}{26}
+\contentsline {subsection}{\numberline {3.2.3}Seleccionar Escena en la Galer\IeC {\'\i }a}{27}
+\contentsline {subsection}{\numberline {3.2.4}Seleccionar \'Area de Salida}{28}
+\contentsline {subsection}{\numberline {3.2.5}Crear Salida}{28}
+\contentsline {subsection}{\numberline {3.2.6}Corregir Enlaces}{29}
+\contentsline {subsection}{\numberline {3.2.7}Enviar Ficheros}{30}
+\contentsline {subsection}{\numberline {3.2.8}Aclaraciones}{31}
+\contentsline {section}{\numberline {3.3}Interfaz gr\'afica}{32}
+\contentsline {subsection}{\numberline {3.3.1}Servidor}{32}
+\contentsline {subsection}{\numberline {3.3.2}Aplicaci\'on}{32}
+\contentsline {chapter}{\numberline {4}Implementaci\'on}{33}
+\contentsline {section}{\numberline {4.1}Estructura de datos}{33}
+\contentsline {subsection}{\numberline {4.1.1}Listas enlazadas}{34}
+\contentsline {section}{\numberline {4.2}Selecci\'on de \'area}{35}
+\contentsline {section}{\numberline {4.3}Interacci\'on entre actividades}{37}
+\contentsline {section}{\numberline {4.4}Ficheros}{39}
+\contentsline {subsection}{\numberline {4.4.1}Guardando/Cargando Im\'agenes}{40}
+\contentsline {subsection}{\numberline {4.4.2}Generando descriptores xml}{42}
+\contentsline {subsection}{\numberline {4.4.3}Env\IeC {\'\i }o}{45}
+\contentsline {section}{\numberline {4.5}Interfaz gr\'afica}{45}
+\contentsline {subsection}{\numberline {4.5.1}Servidor}{45}
+\contentsline {subsection}{\numberline {4.5.2}Aplicaci\'on}{46}
+\contentsline {chapter}{\numberline {5}Publicaci\'on}{49}
+\contentsline {section}{\numberline {5.1}Tipo de licencia}{49}
+\contentsline {chapter}{\numberline {6}Conclusiones}{51}
+\contentsline {section}{\numberline {6.1}Lecciones aprendidas}{51}
+\contentsline {section}{\numberline {6.2}Conocimientos aplicados}{52}
+\contentsline {section}{\numberline {6.3}Trabajos futuros}{52}
+\contentsline {chapter}{\numberline {A}Instalaci\'on}{53}
+\contentsline {section}{\numberline {A.1}Requisitos}{54}
+\contentsline {chapter}{\numberline {B}Manual de usuario}{55}
+\contentsline {section}{\numberline {B.1}Comenzando}{55}
+\contentsline {section}{\numberline {B.2}Crear Aventura}{56}
+\contentsline {section}{\numberline {B.3}Crear Aventura de Nuevo}{57}
+\contentsline {section}{\numberline {B.4}Modificar Aventura}{58}
+\contentsline {section}{\numberline {B.5}Eliminar Aventura}{58}
+\contentsline {section}{\numberline {B.6}Enviar Aventura}{59}
+\contentsline {section}{\numberline {B.7}Obtener Escena}{60}
+\contentsline {section}{\numberline {B.8}Modificar Escena}{61}
+\contentsline {section}{\numberline {B.9}Eliminar Escena}{63}
+\contentsline {section}{\numberline {B.10}Seleccionar Escena en la Galer\IeC {\'\i }a}{64}
+\contentsline {section}{\numberline {B.11}Seleccionar \'Area de Salida}{64}
+\contentsline {section}{\numberline {B.12}Crear Salida}{65}
+\contentsline {section}{\numberline {B.13}Corregir Enlaces}{66}
+\contentsline {section}{\numberline {B.14}Finalizando}{69}
+\contentsline {section}{\numberline {B.15}Preparar el servidor}{69}
+\contentsline {section}{\numberline {B.16}Enviar Ficheros}{70}
+\contentsline {chapter}{Bibliograf\'{\i }a}{73}

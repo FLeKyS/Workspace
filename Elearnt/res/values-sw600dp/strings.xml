@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Elearnt</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="Obtener">Obtener</string>
+    <string name="TomarImagen">Tomar Imagen</string>
+    <string name="ObtenerGaleria">Obtener de la galeria</string>
+    <string name="desc">image to redimension</string>
+    <string name="Salida">Crear salida</string>
+    <string name="Finalizar">Finalizar</string>
+    <string name="nombre">Nombre de la imagen :</string>
+    <string name="Crear">Crear proyecto</string>
+    <string name="Salir">Salir</string>
+    <string name="TituloAventura">Titulo de la aventura :</string>
+    <string name="ModoGrafico">Modo grafico</string>
+    
+    
+    <!-- dimensions -->
+    <dimen name="buttonMinHeight">0dip</dimen>
+	<dimen name="buttonMinWidth">0dip</dimen>
+	
+	<dimen name="textSizeButton">25sp</dimen>
+	<dimen name="textSizeTitle">60sp</dimen>
+	<dimen name="textSizeSubTitle">30sp</dimen>
+	<dimen name="textmakeExitsSizeSubTitle">30sp</dimen>
+	
+	<dimen name="propertiesMarginTopTitle">50dp</dimen>
+	<dimen name="propertiesMarginLeftScreen">100dp</dimen>
+	<dimen name="propertiesMarginTopSubTitle">60dp</dimen>
+	<dimen name="scenesMarginTopTitle">50dp</dimen>
+	<dimen name="scenesMarginTopEditText">50dp</dimen>
+	<dimen name="scenesMarginTopRdbGall">5dp</dimen>
+	<dimen name="scenesMarginLeftTitle">350dp</dimen>
+	<dimen name="scenesMarginRightScreen">25dp</dimen>
+	<dimen name="makeExitsMarginTopTitle">100dp</dimen>
+	<dimen name="clsMarginTopTitle">60dp</dimen>
+	<dimen name="finishMarginTopTitle">100dp</dimen>
+	<dimen name="finishMarginLeftScreen">100dp</dimen>
+	
+	<dimen name="spinnerWidth">150dp</dimen>
+	<dimen name="spinnerHeight">35dp</dimen>
+	
+	<dimen name="imageViewWidth">400dp</dimen>
+	<dimen name="imageViewHeight">300dp</dimen>
+	
+    <string-array name="option_properties">
+        <item>Modificar</item>
+        <item>Crear de Nuevo</item>
+        <item>Eliminar</item>
+        <item>Enviar</item>
+    </string-array>
+	<string-array name="graphic_mode">
+        <item>Ventana</item>
+        <item>Ventana fondo en negro</item>
+        <item>Pantalla completa (Windows)</item>
+    </string-array>
+    <string-array name="option_scene">
+        <item>Obtener</item>
+        <item>Modificar</item>
+        <item>Eliminar</item>
+        <item>Corregir enlaces</item>
+    </string-array>
+        <string name="Continuar">Continuar</string>
+        <string name="Properties">PROPIEDADES</string>
+        <string name="Scenes">ESCENAS</string>
+        <string name="nameLinkScene">Nombre de la escena con la que enlaza  :</string>
+        <string name="ExitText">Texto a mostrar en la salida :</string>
+        <string name="Eliminar">Eliminar</string>
+        <string name="Corregir">Corregir</string>
+        <string name="IpPortServer">Direccion IP del servidor :</string>
+        <string name="div">:</string>
+        <string name="pathProjectPC">Path del proyecto en el PC :</string>
+        <string name="ok">OK</string>
+        <string name="Buscar">Buscar</string>
+        <string name="aventuraExiste">La aventura ya existe, que desea hacer :</string>
+        <string name="SceneExists">La escena ya existe, que desea hacer :</string>
+        <string name="Copyright">Copyright © 2014  José Ignacio Madan Frías</string>
+
+</resources>

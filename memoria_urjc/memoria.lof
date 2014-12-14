@@ -1,0 +1,63 @@
+\select@language {spanish}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Arquitectura Android. Autor: Smieh. Licencia: Cc-by-sa-3.0-migrated, GFDL}}{5}
+\contentsline {figure}{\numberline {1.2}{\ignorespaces eAdventure Engine}}{6}
+\contentsline {figure}{\numberline {1.3}{\ignorespaces eAdventure Editor}}{6}
+\contentsline {figure}{\numberline {1.4}{\ignorespaces Eclipse IDE}}{8}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Funcionamiento General}}{18}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Diagrama de casos de uso general}}{19}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Crear Aventura}}{20}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Crear Aventura de Nuevo}}{21}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Modificar Aventura}}{22}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Eliminar Aventura}}{23}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Enviar Aventura}}{23}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Finalizar Aventura}}{24}
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Obtener Escena}}{25}
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Modificar Escena}}{26}
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Eliminar Escena}}{27}
+\contentsline {figure}{\numberline {3.12}{\ignorespaces Seleccionar Escena en la Galer\IeC {\'\i }a}}{27}
+\contentsline {figure}{\numberline {3.13}{\ignorespaces Seleccionar \'Area de Salida}}{28}
+\contentsline {figure}{\numberline {3.14}{\ignorespaces Crear Salida}}{29}
+\contentsline {figure}{\numberline {3.15}{\ignorespaces Corregir Enlaces}}{30}
+\contentsline {figure}{\numberline {3.16}{\ignorespaces Enviar Ficheros}}{31}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Listas enlazadas}}{34}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Diagrama de flujo surfaceView}}{35}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Ciclo de vida de las actividades~\cite {Actividades}}}{37}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces descriptor.xml}}{42}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces project.xml}}{43}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Relaci\'on entre escenas (eAdventureEditor)}}{43}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces chapter1.xml}}{44}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Utilizando Java Swing}}{45}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Resoluciones soportadas}}{46}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Gesti\'on de diferentes resoluciones}}{46}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {B.1}{\ignorespaces Men\'u principal.}}{55}
+\contentsline {figure}{\numberline {B.2}{\ignorespaces Crear aventura.}}{56}
+\contentsline {figure}{\numberline {B.3}{\ignorespaces Seleccionar aventura existente.}}{57}
+\contentsline {figure}{\numberline {B.4}{\ignorespaces Crear aventura de nuevo.}}{57}
+\contentsline {figure}{\numberline {B.5}{\ignorespaces Modificar aventura.}}{58}
+\contentsline {figure}{\numberline {B.6}{\ignorespaces Eliminar aventura.}}{59}
+\contentsline {figure}{\numberline {B.7}{\ignorespaces Enviar aventura.}}{59}
+\contentsline {figure}{\numberline {B.8}{\ignorespaces Obtener escena.}}{60}
+\contentsline {figure}{\numberline {B.9}{\ignorespaces Hacer fotograf\IeC {\'\i }a.}}{60}
+\contentsline {figure}{\numberline {B.10}{\ignorespaces Seleccionar imagen.}}{61}
+\contentsline {figure}{\numberline {B.11}{\ignorespaces Modificar escena.}}{62}
+\contentsline {figure}{\numberline {B.12}{\ignorespaces Modificar escena (no existen escenas).}}{62}
+\contentsline {figure}{\numberline {B.13}{\ignorespaces Eliminar escena.}}{63}
+\contentsline {figure}{\numberline {B.14}{\ignorespaces Eliminar escena (no existen escenas).}}{63}
+\contentsline {figure}{\numberline {B.15}{\ignorespaces Seleccionar escena en la galer\IeC {\'\i }a.}}{64}
+\contentsline {figure}{\numberline {B.16}{\ignorespaces Seleccionar \'area de salida.}}{65}
+\contentsline {figure}{\numberline {B.17}{\ignorespaces Crear salida.}}{66}
+\contentsline {figure}{\numberline {B.18}{\ignorespaces Crear salida (no existen escenas).}}{66}
+\contentsline {figure}{\numberline {B.19}{\ignorespaces Corregir enlaces.}}{67}
+\contentsline {figure}{\numberline {B.20}{\ignorespaces Corregir enlaces (no existen escenas).}}{67}
+\contentsline {figure}{\numberline {B.21}{\ignorespaces Corregir salida.}}{68}
+\contentsline {figure}{\numberline {B.22}{\ignorespaces Corregir salida (sin escenas enlazables).}}{68}
+\contentsline {figure}{\numberline {B.23}{\ignorespaces Preparar el servidor.}}{69}
+\contentsline {figure}{\numberline {B.24}{\ignorespaces Enviar ficheros.}}{71}

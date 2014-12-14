@@ -1,0 +1,1544 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Plantilla de memoria en LaTeX para la ETSIT - Universidad Rey Juan Carlos
+%%
+%% Por Gregorio Robles <grex arroba gsyc.urjc.es>
+%%     Grupo de Sistemas y Comunicaciones
+%%     Escuela Técnica Superior de Ingenieros de Telecomunicación
+%%     Universidad Rey Juan Carlos
+%% (muchas ideas tomadas de Internet, colegas del GSyC, antiguos alumnos...
+%%  etc. Muchas gracias a todos)
+%%
+%% La última versión de esta plantilla está siempre disponible en:
+%%     http://gsyc.urjc.es/~grex/pfcs
+%%
+%% Para obtener PDF, ejectuar en la shell:
+%%   pdflatex memoria.tex
+%% (las imágenes deben ir en PNG o JPG)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[a4paper, 12pt]{book}
+%\usepackage[T1]{fontenc}
+
+\usepackage[a4paper, left=2.5cm, right=2.5cm, top=3cm, bottom=3cm]{geometry}
+\usepackage{times}
+\usepackage[latin1]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{url}
+%\usepackage[dvipdfm]{graphicx}
+\usepackage{graphicx}
+\usepackage{float}  %% H para posicionar figuras
+\usepackage[nottoc, notlot, notlof, notindex]{tocbibind} %% Opciones de índice
+\usepackage{latexsym}  %% Logo LaTeX
+
+\title{Memoria del Proyecto}
+\author{José Ignacio Madan Frías}
+
+\renewcommand{\baselinestretch}{1.5}  %% Interlineado
+
+\begin{document}
+
+\renewcommand{\refname}{Bibliografía}  %% Renombrando
+\renewcommand{\appendixname}{Apéndice}
+\setcounter{secnumdepth}{3} 
+\setcounter{tocdepth}{3}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PORTADA
+
+\begin{titlepage}
+\begin{center}
+\begin{tabular}[c]{c c}
+%\includegraphics[bb=0 0 194 352, scale=0.25]{logo} &
+\includegraphics[scale=0.25]{img/logo_vect.png} &
+\begin{tabular}[b]{l}
+\Huge
+\textsf{UNIVERSIDAD} \\
+\Huge
+\textsf{REY JUAN CARLOS} \\
+\end{tabular}
+\\
+\end{tabular}
+
+\vspace{3cm}
+
+\Large
+PLAN CONJUNTO:\\
+INGENIERÍA SUPERIOR DE TELECOMUNICACIONES\\
+INGENIERÍA TÉCNICA EN INFORMÁTICA DE SISTEMAS
+%INGENIERÍA DE TELECOMUNICACIÓN --\\
+%INGENIERÍA TÉCNICA EN INFORMÁTICA DE SISTEMAS
+
+\vspace{0.8cm}
+
+\large
+Curso Académico 2014/2015
+
+\vspace{0.4cm}
+
+Proyecto Fin de Carrera
+
+\vspace{2.9cm}
+
+\LARGE
+ELEARNT
+
+\vspace{5.5cm}
+
+\large
+Autor : José Ignacio Madan Frías \\
+Tutor : Dr. Gregorio Robles
+\end{center}
+\end{titlepage}
+
+\newpage
+\mbox{}
+\thispagestyle{empty} % para que no se numere esta pagina
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% Dedicatoria
+
+\chapter*{}
+\pagenumbering{Roman} % para comenzar la numeracion de paginas en numeros romanos
+\begin{flushright}
+\textit{Dedicado a \\
+todas las personas que estuvieron\\
+robando el tiempo\\
+que pertenecía a la soledad}
+\end{flushright}
+
+\let\thefootnote\relax\footnote{
+
+ \begin{figure}[H]
+ 	\centering
+    \includegraphics[scale=0.8]{img/bySa}
+ \end{figure}
+
+Esta obra está sujeta a la licencia Reconocimiento-CompartirIgual 4.0 Internacional de Creative Commons. Para ver una copia de esta licencia, visite http://creativecommons.org/licenses/by-sa/4.0/.
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% Agradecimientos
+
+\chapter*{Agradecimientos}
+%\addcontentsline{toc}{chapter}{Agradecimientos} % si queremos que aparezca en el índice
+\markboth{AGRADECIMIENTOS}{AGRADECIMIENTOS} % encabezado
+
+En especial, a mi familia y a todas las personas que he considerado como tal a lo largo de
+mi vida. Por supuesto, a mi tutor y a mi querido consultor de dudas, Internet, y a todos
+los que a través de él, respuestas han hecho posibles.
+
+\begin{flushleft}
+\textit{``A la hora de la verdad,\\
+se verá la verdad''\\}
+\textmd{Un Don Nadie}
+\end{flushleft}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% Resumen
+
+\chapter*{Resumen}
+%\addcontentsline{toc}{chapter}{Resumen} % si queremos que aparezca en el índice
+\markboth{RESUMEN}{RESUMEN} % encabezado
+
+Como su propio nombre indica Elearnt (Electronic Learning Tool) nos encontramos con
+una herramienta para el aprendizaje electrónico. Siendo más específico, sirve de ayuda
+a un proyecto realizado por la Universidad Complutense de Madrid, eAdventure, cuya finalidad 
+es la creación de aventuras educativas.
+\\[4mm]
+Para los propósitos especificados, se ha trabajado con un sistema operativo actualmente bastante
+popular, hablamos de Android, utilizando un lenguaje de programación también bastante conocido, 
+como es el caso de Java. Con el fin de conseguir implementar una aplicación que proporcione cierta 
+agilidad a la hora de desarrollar las bases de una aventura educativa.
+\\[4mm]
+Cabe mencionar que en ningún momento pretende tener un carácter sustitutivo, al contrario,
+pretende proporcionar soporte al proyecto inicial, siendo posible su utilización como se
+estime oportuno.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% Resumen en inglés
+
+\chapter*{Summary}
+%\addcontentsline{toc}{chapter}{Summary} % si queremos que aparezca en el índice
+\markboth{SUMMARY}{SUMMARY} % encabezado
+
+As its name suggests Elearnt (Electronic Learning Tool) we are found with
+a tool for\\ e-learning. Being more specific, helps
+a project carried out by the Universidad Complutense de Madrid, eAdventure, whose purpose
+it is the creation of educational adventures.
+\\[4mm]
+For specified purposes, it has worked with an operating system currently quite
+people, we are talking about Android, using a programming language also quite known,
+as in the case of Java. In order to implement an application that provides some
+agility in developing the foundations of an educational adventure.
+\\[4mm]
+It is worth mentioning that at no time he intends to have a replacement character, on the contrary,
+aims to provide support to the initial project, it is possible to use as is
+deems appropriate.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% Índices
+
+%%%% Índice de contenidos
+\tableofcontents 
+%%%% Índice de figuras
+\cleardoublepage
+%\addcontentsline{toc}{chapter}{Lista de figuras} % para que aparezca en el indice de contenidos
+\listoffigures % indice de figuras
+%%%% Índice de tablas
+%\cleardoublepage
+%\addcontentsline{toc}{chapter}{Lista de tablas} % para que aparezca en el indice de contenidos
+%\listoftables % indice de tablas
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Introducción}
+\pagenumbering{arabic} % para empezar la numeración con números
+
+En este capítulo se introduce el proyecto.
+
+En un primer apartado se realiza una breve introducción a las aventuras gráficas, explicando
+sus conceptos básicos. Posteriormente, nos centraremos en explicar el concepto de aprendizaje
+electrónico y los proyectos relacionados.
+
+Por último, daremos a conocer las principales características de las tecnologías implicadas y
+la estructura de la memoria.
+
+\section{¿Qué es una aventura gráfica?}
+
+Para conocer este concepto, vayámonos a su principal antecesor, hablamos de las aventuras
+conversacionales~\cite{AventuraConversacional}, que no es más que un género de los 
+videojuegos, principalmente de ordenador, basado en la interacción con el jugador por medio de texto.
+
+Teniendo clara esta primera idea, podemos ver las aventuras gráficas~\cite{AventuraGrafica} como una 
+evolución de dicho género, permitiendo al jugador, además, interactuar con personajes, objetos, rompecabezas
+e incluso ofrecer un personaje que controlar (3ª persona). Como ejemplos más ilustres existen
+bastantes aventuras pertenecientes a la época dorada del género, 90's (Maniac Mansion, Grim Fandango, 
+Monkey Island, Simon the Sorcerer, Broken Sword, Hollywood Monsters, Day of the Tentacle, 
+Indiana Jones and the Fate of Atlantis, ...).
+
+\section{¿Qué signica e-learning?}
+
+Podemos definir el aprendizaje electrónico~\cite{AprendizajeElectronico} (e-learning) como una alternativa a los sistemas
+educativos actuales, en la que, a diferencia de otros, no hace falta un estado presencial.
+En caso de tener un estado semipresencial estaríamos hablando de b-learning (blended learning)
+una combinación de los dos sistemas, tradicional con el aprendizaje electrónico.
+
+Entre los recursos que ofrece para dar una educación a distancia nos encontramos con el concepto
+de web 2.0 o web social, que permite la interacción entre usuarios a la hora de compartir información.
+Además se hace uso de otras tecnologías como pueden ser: correo electrónico, páginas web, foros de 
+discusión, mensajería instantánea, etc. Todas ellas relacionadas con la web 2.0 propiamente dicha.
+\\[4mm]
+Las principales ventajas que presenta son las siguientes:
+\begin{itemize}
+\item Desarrollo de habilidades en el uso de las nuevas tecnologías
+\item Se adquiere capacidad autodidacta
+\item Actualización de contenidos
+\item Eliminación de barreras espaciales
+\item Confrontación de conocimientos
+\item Gestión real del conocimiento
+\end{itemize}
+Frente a: 
+\begin{itemize}
+\item Se requiere un conocimiento mínimo de las tecnologías implicadas
+\item Como toda tecnología nueva, requiere un tiempo de adaptación
+\item Empobrece la calidad educativa si se prescinde demasiado de la figura
+del profesor
+\end{itemize}
+
+\section{Proyectos similares}
+\label{sec:proyectosSimilares}
+Algunos de los proyectos relacionados con el aquí expuesto, entendiéndolo como
+herramienta para el aprendizaje electrónico~\cite{AprendizajeElectronico}:
+\begin{itemize}
+\item WebCT
+\item TopClass
+\item Learning Space
+\item Virtual-U
+\item DigitalThink
+\end{itemize}
+Más en particular, el principal proyecto con el que tiene relación, entendiéndolo
+casi como una extensión o complemento de él, ya mencionado anteriormente, y del
+que se darán más detalles en la sección Tecnologías implicadas es el eAdventure.
+Definido como, cito textualmente~\cite{eAdventure}:
+\\[4mm]
+\textit{La plataforma eAdventure es un proyecto de investigación que aspira a facilitar la integración de juegos educativos y simulaciones basadas en juegos en procesos educativos en general y Entornos Virtuales de Aprendizaje (VLE) en particular. Está siendo desarrollado bajo los auspicios del grupo e-UCM en la Universidad Complutense de Madrid, con tres objetivos principales:
+\begin{itemize}
+\item Reducción de los costes de desarrollo para juegos educativos.
+\item Incorporación de características educativas específicas en herramientas de desarrollo de juegos.
+\item Integración de los juegos resultantes con material educativo en el contexto de los Entornos Virtuales de Aprendizaje.
+\end{itemize}}
+Es más, actualmente se encuentran trabajando en un proyecto que cumple la funcionalidad básica de eLearnT
+además de otras opciones (insertar objetos, diálogos, personajes, ...) siendo en este caso una versión de
+eAdventure para Android. (\url{http://www.youtube.com/watch?v=A5Dt0cwe8kc})
+
+\section{Tecnologías implicadas}
+A continuación pasaremos a mencionar las principales características de las tecnologías
+relacionadas con el proyecto a documentar. Téngase en cuenta que el principal lenguaje
+de programación ligado al sistema operativo Android es Java y el proyecto padre es eAdventure,
+por lo tanto el margen de elección ha sido pequeño: entorno de desarrollo y creación del
+servidor.
+
+Por comodidad (hacer uso de un mismo lenguaje de programación) y experiencia (entorno de desarrollo
+con el que estoy más familiarizado) se ha optado por realizar el servidor con Java y todo el proyecto
+con eclipse IDE.
+
+\subsection{Java~\cite{Java}}
+\label{sec:java}
+Lenguaje de programación basado en c y c++, de más alto nivel, de propósito general, concurrente, 
+orientado a objetos y basado en clases. De tipado fuerte (distingue entre mayúsculas y minúsculas).
+Requiere el uso de una máquina virtual que adecue el código compilado por las aplicaciones
+\textit{bytecode} al código máquina asociado a la arquitectura del terminal en cuestión, es decir, 
+nos encontramos con un lenguaje multiplataforma.
+
+Las principales APIs (Application Program Interface) o conjunto de paquetes formado por clases, 
+interfaces y excepciones relacionadas de las que dispone:
+\begin{itemize}
+\item Java ME (Micro Edition) para entornos con recursos limitados: móviles, PDAs (Personal Digital Assistant), etc.
+\item Java SE (Standard Edition) para gamas medias: PCs (Personal Computer).
+\item Java EE (Enterprise Edition) para entornos empresariales o Internet.
+\end{itemize}
+En el caso del servidor se hará uso de Java SE por tratarse de un entorno de red pequeño
+desarrollado sobre un PC. Podría pensarse en el uso de Java ME para la aplicación eLearnT,
+sin embargo, a pesar de que las aplicaciones de Android estén programadas en Java, poseen
+su propia máquina virtual Dalvik, que ejecuta un~\textit{bytecode} generado por una API
+específica de Android~\cite{AndroidAPIVsJavaAPI}.
+Como curiosidad:
+
+\textit{Es frecuentada por algunos de los miembros del equipo. Pero no está claro si es un acrónimo o no, aunque algunas fuentes señalan que podría tratarse de las iníciales de sus creadores: \textbf{J}ames Gosling, \textbf{A}rthur \textbf{V}an Hoff, y \textbf{A}ndy Bechtolsheim. Otros abogan por el siguiente acrónimo, \textbf{J}ust \textbf{A}nother \textbf{V}ague \textbf{A}cronym ("sólo otro acrónimo ambiguo más"). La hipótesis que más fuerza tiene es la de que Java debe su nombre a un tipo de café disponible en la cafetería cercana, de ahí que el icono de java sea una taza de café caliente. Un pequeño signo que da fuerza a esta teoría es que los 4 primeros bytes (el número mágico) de los archivos.class que genera el compilador, son en hexadecimal, 0xCAFEBABE. A pesar de todas estas teorías, el nombre fue sacado al parecer de una lista aleatoria de palabras.}
+
+\subsection{Android~\cite{Android}}
+Sistema operativo basado en el kernel de Linux diseñado para una gran variedad
+de dispositivos (relojes, televisores, automóviles, tabletas...) inicialmente Smartphones,
+libre, gratuito y multiplataforma. Posee su propia máquina virtual, como se menciono en la
+subsección anterior. Además ofrece a los desarrolladores todo el conjunto de herramientas y documentación necesarias
+para la creación de aplicaciones \url{http://developer.android.com/intl/es/index.html}
+
+De esta forma consigue ser un sistema operativo atractivo para todos los públicos, tanto para el
+usuario medio, como para aquel con conocimientos informáticos, ya que ofrece una gran variedad de
+aplicaciones, la mayoría accesibles desde Google play \url{http://play.google.com/store}
+
+ \begin{figure}[H]
+ 	\centering
+    \includegraphics[scale=0.4]{img/AndroidSystemArchitecture}
+    \caption{Arquitectura Android. Autor: Smieh. Licencia: Cc-by-sa-3.0-migrated, GFDL}
+ \end{figure}
+
+\subsection{Eadventure~\cite{eAdventure}}
+Proyecto ya definido anteriormente en la subsección \textbf{Proyectos similares}. Entrando en más profundidad,
+está formado por un motor gráfico destinado a la ejecución de las aventuras educativas creadas
+mediante un editor.
+
+ \begin{figure}[H]
+ 	\centering
+    \includegraphics[scale=0.4]{img/eAdventureEngine}
+    \caption{eAdventure Engine}
+ \end{figure}
+ 
+ \begin{figure}[H]
+ 	\centering
+    \includegraphics[scale=0.4]{img/eAdventureEditor}
+    \caption{eAdventure Editor}
+ \end{figure}
+ 
+Como puede apreciarse en la figura 1.3, el editor cuenta con una gran funcionalidad (crear escenas,
+salidas, objetos, protagonistas, personajes, conversaciones...). La configuración de la aventura
+será guardada en lenguaje de marcado XML, es decir, modificando dichos archivos se pueden alterar
+sus propiedades: \textit{Los autores pueden usar el editor gráfico para crear juegos,
+o acceder directamente a los documentos fuente que describen las aventuras utilizando un lenguaje 
+de marcado XML.}
+
+Además ofrecen la posibilidad de exportar las aventuras en todo tipo de formatos, por ejemplo,
+\textit{.jar} o ejecutables de java, objetos de aprendizaje (IMS CP, WebCT 4 CP, AGREGA, ...).
+\\[4mm]
+\textit{Características educativas:
+\begin{itemize}
+\item Soporte para escenarios de aprendizaje adaptativos en tiempo real
+\item Juegos empaquetados con metadatos estándares (IEEE Learning Object Metadata, LOM-ES)
+\item Integración con LMS a través de la implementación de diversos estándares educativos (SCORM 1.2 y 2004 e IMS Content Packaging), exportación especial para la integración con WebCT 4.0 y soporte para IMS Learning Design
+\item Integración en el repositorio de contenidos educativos digitales Agrega.
+\end{itemize}
+}
+
+\subsection{Eclipse IDE (Integrated Development Environment)}
+Entorno de desarrollo multiplataforma para una gran variedad de lenguajes de programación (Java, c/c++) e instalando
+los plugins adecuados (Python, Ada, Pascal, Fortran, Haskell, Latex, Java Script...). Existen plugins específicos
+para el desarrollo de proyectos (Java Swing, Android, etc.).
+
+En el proyecto que nos concierne se ha utilizado el lenguaje de programación Java, además de los plugins necesarios para el desarrollo de la aplicación (Android SDK) y el servidor (WindowBuilder).
+
+ \begin{figure}[H]
+ 	\centering
+    \includegraphics[scale=0.45]{img/eclipseIDE}
+    \caption{Eclipse IDE}
+ \end{figure}
+ 
+Cuenta con un editor de texto, generación automática de código, depuración, corrección de errores,
+distinción de partes del código mediante colores, etc. Para más información visite la web oficial
+\url{http://eclipse.org/home/index.php}
+
+\section{Estructura de la memoria}
+Podemos dividir la memoria en tres grandes bloques:
+
+\begin{itemize}
+\item \textbf{I}. Introducción y objetivos.
+\item \textbf{II}. Diseño e implementación.
+\item \textbf{III}. Publicación y conclusiones.
+\end{itemize}
+
+En el primer bloque se hace una breve introducción al proyecto, explicando conceptos fundamentales,
+tecnologías implicadas y proyectos similares. Además se exponen los principales problemas a los que se
+enfrenta el proyecto, justificados mediante una prueba realizada, así como los requisitos necesarios. 
+Por último, se especifica el modelo de desarrollo utilizado, justificándolo.
+
+En el segundo bloque nos centraremos en dar respuesta a las siguientes preguntas, ¿qué se ha hecho? y
+¿cómo se ha hecho? o en otras palabras, que diseño se ha seguido a la hora de realizar la aplicación y 
+como se ha llevado a cabo.
+
+El tercer bloque está formado por los términos bajo los cuales se hará público el proyecto, además de
+los conceptos aprendidos y experiencia adquirida.
+
+Se ha añadido un apéndice para indicar al usuario los pasos a seguir a la hora de instalar~\ref{sec:instalacion} y utilizar~\ref{sec:manualUsuario} la aplicación y el servidor.
+ 
+
+\newpage
+\chapter{Objetivos}
+\section{Descripción del problema}
+\label{sec:descripcionProblemas}
+Podría verse poco útil o incluso inútil el desarrollo de este proyecto, ya que existe actualmente un editor
+con mucha más funcionalidad y se está trabajando en un proyecto que supone una versión avanzada de este. Sin
+embargo, se juega con distintos factores, el primero de ellos es la comodidad que ofrece frente al editor
+actual, agilizando una parte de la funcionalidad básica, la obtención de escenarios y enlazado entre ellos.
+Por otra parte, a pesar de que se esté trabajando en adaptar el editor para Android en paralelo, no deja de
+ofrecer alternativas al diseño e implementación, dando lugar a una fuente de información alternativa.
+
+\subsection{Comparación eLearnT-eAdventureEditor}
+\begin{center}
+\textbf{VISITA VIRTUAL A TU HOGAR}
+\end{center}
+\textit{Imagínate por un momento que desearas vender tu casa, y en vez de colgar simplemente unas imágenes en la red, te gustaría ofrecer la posibilidad de realizar un recorrido virtual por ella para hacer más atractiva su venta.}\\[2mm]
+%Antes de comenzar, visita el siguiente enlace para tener un ejemplo de cómo crear la visita virtual:
+%Una vez realizada, 
+Conteste a las siguientes preguntas:
+\textit{\\[2mm]
+1) \textbf{Rendimiento}
+\begin{itemize}
+\item ¿Te ha requerido mucho tiempo? ¿En qué parte has dedicado más tiempo?
+\item ¿Has notado algún tipo de demora en la ejecución?
+\end{itemize}
+2)	\textbf{Usabilidad}
+\begin{itemize}
+\item ¿Has podido realizar todas las acciones que has querido con comodidad?
+\item ¿Hechas en falta alguna opción?
+\end{itemize}
+3)	\textbf{Aspecto}
+\begin{itemize}
+\item ¿Qué te parece el diseño?
+\item ¿Te parece intuitivo su uso?
+\end{itemize}
+4)	\textbf{Errores}
+\begin{itemize}
+\item ¿Se ha producido algún error? ¿En qué parte?
+\end{itemize}
+5)	\textbf{Mejoras}
+\begin{itemize}
+\item ¿Qué te gustaría que se pudiera hacer demás?\\
+\end{itemize}
+}
+
+\textit{
+\textbf{Especificaciones}:
+\begin{itemize}
+\item Usuario medio (conocimientos básicos de informática)
+\item Casa de dimensiones medias ($ \approx $ 100 $ m^{2}$)
+\item Numero de escenas ($ \approx$ 10)
+\end{itemize}
+}
+
+\textit{
+\begin{center}
+\textbf{eLearnT}
+\end{center}
+1) \textbf{Rendimiento}
+\begin{itemize}
+\item No, 15 minutos aproximadamente. En la parte de crear los enlaces.
+\item No.
+\end{itemize}
+2)	\textbf{Usabilidad}
+\begin{itemize}
+\item Sí, excepto a la hora de crear los enlaces, ya que, a veces, al elegir el tamaño del cuadro para crear el enlace no responde bien.
+\item Saber los enlaces creados.
+\end{itemize}
+3)	\textbf{Aspecto}
+\begin{itemize}
+\item Sencillo.
+\item Desde el móvil sí, desde el programa del ordenador considero que no es tan intuitivo.
+\end{itemize}
+4)	\textbf{Errores}
+\begin{itemize}
+\item Sí. Al principio, cuando fui a realizar la primera imagen, la cámara no la reconocía.
+\end{itemize}
+5)	\textbf{Mejoras}
+\begin{itemize}
+\item Imágenes panorámicas, así, si se quiere mostrar una casa no hace falta crear varias imágenes de una parte, por ejemplo el salón, si quiero que se vea todo.
+\end{itemize}
+}
+
+\textit{
+\begin{center}
+\textbf{eAdventure}
+\end{center}
+1) \textbf{Rendimiento}
+\begin{itemize}
+\item No. 25 minutos. Enlazar imágenes.
+\item No.
+\end{itemize}
+2)	\textbf{Usabilidad}
+\begin{itemize}
+\item Sí.
+\item Si una escena tiene que ser enlazada por más de una, poder indicarlo para que se creen los enlaces de varias escenas a esa misma.
+\end{itemize}
+3)	\textbf{Aspecto}
+\begin{itemize}
+\item Sencillo.
+\item Considerablemente.
+\end{itemize}
+4)	\textbf{Errores}
+\begin{itemize}
+\item No.
+\end{itemize}
+5)	\textbf{Mejoras}
+\begin{itemize}
+\item Que saliera el  nombre de la escena con la que enlaza en el cuadro de selección.
+\end{itemize}
+}
+
+\section{Requisitos}
+El proyecto deberá cumplir ciertos requisitos básicos:
+\begin{itemize}
+\item Definir una interfaz fácil e intuitiva.
+\item Adaptar escenas a la resolución específica del eAdventure Editor (800x600)
+\item Cargado adecuado de imágenes de gran resolución.
+\item Proceso automatizado al máximo.
+\item Tiempo de ejecución asequible.
+\end{itemize}
+
+\section{Modelo de desarrollo}
+El modelo de desarrollo que más se ajusta al proyecto es el iterativo, ya que se ha dividido en pequeños subproyectos (Capturar y ajustar resolución, Dibujar rectángulo modificable, Mostrar galería de escenas) todos ellos rediseñados y probados
+hasta formar parte del proyecto total (eLearnT). De esta forma se ofrecen versiones de las distintas funcionalidades
+del proyecto, que se prueban por separado, mejorando su calidad, encontrándose con el problema de tener versiones demasiado
+simples inicialmente, hasta que se consiguen ajustar adecuadamente a las especificaciones del cliente.
+
+Entre las principales ventajas que nos encontramos cabe destacar~\cite{DesarrolloIterativo}:
+\textit{
+\begin{itemize}
+\item En el desarrollo de este modelo se da la retroalimentación muy temprano a los usuarios.
+\item Permite separar la complejidad del proyecto, gracias a su desarrollo por parte de cada iteración o bloque.
+\item El producto es consistente y puntual en el desarrollo.
+\item Los productos desarrollados con este modelo tienen una menor probabilidad de fallar.
+\item Se obtiene un aprendizaje en cada iteración que es aplicado en el desarrollo del producto y aumenta las experiencias para próximos proyectos.
+\end{itemize}
+}
+
+Pero~\cite{DesarrolloIterativo}:
+\textit{
+\begin{itemize}
+\item La entrega temprana de los proyectos produce la creación de sistemas demasiado simples que a veces se ven un poco monótonos a los ojos del personal que lo recibe.
+\item La mayoría de los incrementos se harán en base de las necesidades de los usuarios. Los incrementos en si ya son estipulados desde antes de la entrega del proyecto, sin embargo hay que ver cómo se maneja el producto para ver si necesita otros cambios además de los estipulados antes de la entrega del proyecto. Este problema no se ve frecuentemente ya que la mayoría de las veces los incrementos estipulados suplen satisfactoriamente al usuario.
+\item Los incrementos no deben constar de muchas líneas de código ya que la idea de los incrementos es agregar accesorios al programa principal (o funcional), para que este tenga una y mil formas de desenvolverse en su tarea; llenar los incrementos de muchas líneas de código provocaría que se perdiera la objetividad o base de lo que se trata el desarrollo incremental.
+\item Requiere de un cliente involucrado durante todo el curso del proyecto. Hay clientes que simplemente no estarán dispuestos a invertir el tiempo necesario.
+\item El trato con el cliente debe basarse en principios éticos y colaboración mutua, más que trabajar cada parte independientemente, defendiendo sólo su propio beneficio.
+\item La entrega de un programa que es parcial pero funcional puede hacer vulnerable al programa debido a la falta de robustez en su sistema, provocando que agentes ajenos puedan interferir con el correcto funcionamiento del programa en sí.
+\item Infunde responsabilidad en el equipo de desarrollo al trabajar directamente con el cliente, requiriendo de profesionales sobre el promedio.
+\item Sufre fuertes penalizaciones en proyectos en los cuales los requerimientos están previamente definidos, o para proyectos ``todo/nada" en los cuales se requiere que se completen en un 100\% el producto para ser implementado (por ejemplo, licitaciones) otro punto muy importante es asegurarnos de que el trabajo se pueda cumplir tomando en cuenta los costos que podamos usar en nuestros propios recursos.
+\end{itemize}
+}
+Téngase en cuenta que el principal cliente del proyecto ha sido el propio desarrollador, a excepción de las pruebas
+realizadas en la subsección \textbf{Comparación eLearnT-eAdventureEditor}, en la que intervinieron dos clientes y cuya
+participación ayudó gratamente en la mejora y actualización del proyecto.
+
+La fase de pruebas no se incluirá en la documentación por falta de tiempo para desarrollar casos suficientemente representativos.
+
+
+\newpage
+\chapter{Diseño}
+Se ha intentado definir un diseño que se ajuste a los requisitos y, posteriormente, a las necesidades del cliente. El
+diseño se ha ido redefiniendo a lo largo de todo el ciclo de vida del software, por lo que, se ha trabajado en paralelo
+diseño-implementación. Teniendo en cuenta esta afirmación, puede observarse como se recoge mayor complejidad en los
+diversos diagramas empleados.
+
+Para tener una visión global de la aplicación se ha utilizado un diagrama de estados que recoge todas las posibles
+interacciones que el usuario puede realizar.
+
+En el caso de las funcionalidades específicas, es preferible utilizar diagramas de secuencia que den más detalles
+del funcionamiento interno de la aplicación.
+
+Por último, mencionar las principales características deseables en las interfaces (aplicación y servidor).
+
+\section{Funcionamiento general} 
+Se ha intentado aportar la máxima funcionalidad posible (Crear/Modificar/Eliminar escenas y además Enviar
+en el caso de las aventuras). Cada aventura tiene asociadas una serie de características y está formada por
+escenas. Para facilitar la manipulación de escenas, así como la creación de enlaces, existirá una galería
+con todas las escenas que se vayan añadiendo a la aventura. Además contará con la opción de corregir los enlaces
+previamente creados para garantizar el correcto funcionamiento de la aventura.
+
+ \begin{figure}[H]
+ 	\centering
+    \includegraphics[scale=0.4]{img/Elearnt}
+    \caption{Funcionamiento General}
+ \end{figure}
+
+\begin{flushleft}
+Aclaraciones:
+\end{flushleft}
+2)
+\begin{itemize}
+\item Una vez realizada la acción Continuar, según el tipo de acción previamente seleccionada (Crear De Nuevo/Modificar/Eliminar/Enviar) se pasará al estado correspondiente.
+\end{itemize}
+3)
+\begin{itemize}
+\item Una vez realizada la acción OK, según el tipo de acción previamente seleccionada 
+(Obtener/Modificar/Eliminar/Corregir enlaces) se pasará al estado correspondiente.
+\item Se accederá a la Galería de escenas siempre y cuando exista al menos una.
+\item Si existen enlaces erróneos no se podrá acceder al estado Enviar.
+\end{itemize}
+9)\\[-10mm]
+\begin{itemize}
+\item Mientras existan enlaces erróneos no se volverá al estado Escenas.
+\end{itemize}
+
+\section{Funcionalidades}
+ \begin{figure}[H]
+ 	\centering
+    \includegraphics[scale=0.4]{img/DiagramaCasosUso}
+    \caption{Diagrama de casos de uso general}
+ \end{figure}
+ 
+Opcionalmente, el usuario podrá crear de nuevo, modificar, eliminar o enviar una aventura previamente creada. Si quisiera obtener una escena, necesariamente tendría que existir un proyecto creado. No se podrá enviar los ficheros contenidos en la aventura hasta que no estén todos los enlaces corregidos. Para seleccionar una escena en la galería necesariamente tiene que existir al menos una.
+
+\subsection{Aventura}
+\label{sec:aventura}
+Estructura central que alberga un conjunto de escenas, enlazadas o no entre ellas, en primera persona (no aparece el
+personaje en la escena, es el propio jugador) y con un par de propiedades básicas:
+\begin{itemize}
+\item Nombre
+\item Modo gráfico: ventana o ventana con fondo en negro, y pantalla completa (solo para Windows)
+\end{itemize}
+
+\subsubsection{Crear}
+\label{sec:crearAventura}
+El usuario podrá crear una aventura, asignándole o no un nombre (se pone por defecto) y un modo gráfico (ventana por defecto). Se hará distinción entre la existencia o no de previas aventuras con el mismo nombre, en cuyo caso, se ofrecerá 
+un abanico de posibilidades a realizar.
+
+ \begin{figure}[H]
+ 	\centering
+    \includegraphics[scale=0.4]{img/CrearAventura}
+    \caption{Crear Aventura}
+ \end{figure}
+ 
+\subsubsection{Crear de Nuevo}
+\label{sec:crearAventuraDeNuevo}
+Si ya existe una aventura previa con el nombre que el usuario específico, y selecciona a continuación la 
+opción crear de nuevo, se destruirá la aventura previamente creada, dando lugar a una nueva, con el mismo nombre y modo 
+gráfico, o los que elija el usuario.
+
+ \begin{figure}[H]
+ 	\centering
+    \includegraphics[scale=0.4]{img/CrearAventuraDeNuevo}
+    \caption{Crear Aventura de Nuevo}
+ \end{figure}
+
+\subsubsection{Modificar}
+\label{sec:modificarAventura}
+En caso de detectar una aventura previamente creada, el usuario podrá cambiar sus propiedades, conservando sus escenas
+y enlaces anteriormente creados.
+
+ \begin{figure}[H]
+ 	\centering
+    \includegraphics[scale=0.4]{img/ModificarAventura}
+    \caption{Modificar Aventura}
+ \end{figure}
+ 
+\subsubsection{Eliminar}
+\label{sec:eliminarAventura}
+Se podrá eliminar por completo una aventura previamente creada.
+
+ \begin{figure}[H]
+ 	\centering
+    \includegraphics[scale=0.4]{img/EliminarAventura}
+    \caption{Eliminar Aventura}
+ \end{figure}
+ 
+\subsubsection{Enviar}
+En caso de no querer modificar la estructura interna de la aventura (escenas y enlaces), existe la posibilidad
+de enviarla directamente al servidor.
+
+ \begin{figure}[H]
+ 	\centering
+    \includegraphics[scale=0.4]{img/EnviarAventura}
+    \caption{Enviar Aventura}
+ \end{figure}
+ 
+\subsubsection{Finalizar}
+Cuando haya terminado la edición de la aventura, la aplicación se asegurará de que todas las escenas y enlaces creados sean correctos.
+
+ \begin{figure}[H]
+ 	\centering
+    \includegraphics[scale=0.4]{img/FinalizarAventura}
+    \caption{Finalizar Aventura}
+ \end{figure}
+
+\subsection{Escena}
+\label{sec:escena}
+Imagen que representa cada una de las subpartes en las que se divide la aventura. Pueden estar enlazadas o no entre ellas, 
+dicho enlace, visualmente representado por una zona interna dentro de la imagen (con nombre o no).
+
+\subsubsection{Obtener}
+\label{sec:obtenerEscena}
+Adquisición de la escena, con su nombre correspondiente, en caso de no especificarse se asignará por defecto.
+El usuario podrá elegir entre realizar una fotografía o seleccionar una imagen de la galería del dispositivo.
+
+ \begin{figure}[H]
+ 	\centering
+    \includegraphics[scale=0.4]{img/ObtenerEscena}
+    \caption{Obtener Escena}
+ \end{figure}
+ 
+\subsubsection{Modificar}
+\label{sec:modificarEscena}
+Si se quisiera modificar parcialmente la escena (su nombre, crear nuevos enlaces) o incluso la imagen por completo que representa la escena (eliminando todos los enlaces previamente creados) bastaría con seleccionar esta opción.
+
+ \begin{figure}[H]
+ 	\centering
+    \includegraphics[scale=0.4]{img/ModificarEscena}
+    \caption{Modificar Escena}
+ \end{figure}
+ 
+\subsubsection{Eliminar}
+\label{sec:eliminarEscena}
+Toda escena no deseada podrá ser eliminada. Para ello será necesario seleccionarla dentro de la galería de escenas previamente creadas.
+
+ \begin{figure}[H]
+ 	\centering
+    \includegraphics[width=0.8\textwidth, keepaspectratio]{img/EliminarEscena}
+    \caption{Eliminar Escena}
+ \end{figure}
+
+\subsection{Seleccionar Escena en la Galería}
+\label{sec:seleccionarEscenaGaleria}
+Recorriendo la galería de escenas previamente creadas, el usuario podrá seleccionar en cualquier momento la escena que desea para posteriormente procesarla como consideré adecuado.
+
+ \begin{figure}[H]
+ 	\centering
+    \includegraphics[width=0.8\textwidth, keepaspectratio]{img/SeleccionarEscenaGaleria}
+    \caption{Seleccionar Escena en la Galería}
+ \end{figure}
+
+\subsection{Seleccionar Área de Salida}
+A través de las dimensiones del área que selecciona una zona dentro de la escena se creará un enlace con las coordenadas correspondientes, a su vez, se puede salir de la edición de enlaces siempre que se desee.
+
+ \begin{figure}[H]
+ 	\centering
+    \includegraphics[scale=0.4]{img/SeleccionarAreaSalida}
+    \caption{Seleccionar Área de Salida}
+ \end{figure}
+ 
+\subsection{Crear Salida}
+\label{sec:crearSalida}
+No es necesario indicar el nombre de la escena con la que enlaza (se asignará uno por defecto), tampoco el texto (no se mostrará nada al pasar por la zona). Se cuenta con la opción bastante cómoda de seleccionar una escena dentro de la galería~\ref{sec:seleccionarEscenaGaleria}, para evitar tener que recordar todas las escenas previamente creadas.
+
+ \begin{figure}[H]
+ 	\centering
+    \includegraphics[scale=0.4]{img/CrearSalida}
+    \caption{Crear Salida}
+ \end{figure}
+
+\subsection{Corregir Enlaces}
+\label{sec:corregirEnlaces}
+La aplicación permitirá corregir los enlaces de una escena determinada previamente seleccionada en la galería.
+
+ \begin{figure}[H]
+ 	\centering
+    \includegraphics[scale=0.4]{img/CorregirEnlaces}
+    \caption{Corregir Enlaces}
+ \end{figure}
+ 
+\subsection{Enviar Ficheros}
+Una vez finalizada la aventura, se establecerá la conexión con el servidor mediante la dirección IP y se procederá al envió de los ficheros (descriptores de propiedades e imágenes).
+
+ \begin{figure}[H]
+ 	\centering
+    \includegraphics[scale=0.4]{img/EnviarFicheros}
+    \caption{Enviar Ficheros}
+ \end{figure}
+ 
+\subsection{Aclaraciones}
+Ténganse en cuenta los siguientes datos a la hora de analizar los diagramas de secuencia correspondientes a cada
+funcionalidad:
+\begin{itemize}
+\item Por path completo se refiere al directorio de la aventura añadiéndole el nombre de la escena~\ref{sec:escena} o al directorio de aventuras más el nombre de la aventura~\ref{sec:aventura}
+\item Se mostrarán todo tipo de indicaciones al usuario (avisos, instrucciones, errores, etc.), se ha intentado
+que estén contenidos en los respectivos diagramas, en caso de faltar, el motivo reside en no añadir mayor complejidad
+\item Distíngase x e y (~\ref{sec:obtenerEscena}, ~\ref{sec:crearSalida} ), en el primer caso
+hace referencia a la posición de las escenas dentro del cuadro de relación entre escenas del eAdventure~\ref{sec:descriptores}, en el segundo,
+a la posición de la esquina superior izquierda del área de salida~\ref{sec:seleccionarAreaSalida2} respecto al eje XY
+\end{itemize}
+
+\section{Interfaz gráfica}
+Se pretende conseguir un aspecto sencillo e intuitivo, que no distraiga demasiado al usuario, pero que proporcione toda la comodidad máxima posible.
+
+\subsection{Servidor}
+Dividirlo en pasos (interacción con eAdventure, ejecutar el servidor) será el principal objetivo a la hora de realizar
+su diseño. A su vez, se tiene que mostrar claramente la IP del servidor, así como el proceso de envío de ficheros.
+
+\subsection{Aplicación}
+Los elementos dentro las actividades de la aplicación deberán:
+\begin{itemize}
+\item Estar lo suficientemente separados para dar una visión global del entorno.
+\item Orientados para automatizar la interacción del usuario.
+\item Aquellos destinados a la transición entre actividades deberán estar colocados en zonas 
+claramente detectables por el usuario.
+\end{itemize}
+
+
+\newpage
+\chapter{Implementación}
+A continuación entraremos a analizar cómo se ha llevado a cabo el diseño de manera eficaz y produciendo resultados satisfactorios.
+
+Para ello empezaremos dando una descripción de una parte fundamental de la puesta en marcha del proyecto, hablamos del almacenamiento de datos~\ref{sec:estructuraDatos}, ya que sin una estructura bien definida no se podrían modificar las aventuras creadas posteriormente.
+
+A continuación pasaremos por otra parte fundamental a la hora de implementar el proyecto, seleccionar el área de las escenas~\ref{sec:seleccionArea} correctamente a través de la interacción con el usuario. Si no se define un método de obtención de áreas adecuado pudiera verse afectada la subjetividad crítica del usuario.
+
+Además se explicará como interactúan las actividades de la aplicación entre sí para tener una visión global de la comunicación entre ellas~\ref{sec:interaccionEntreActividades}.
+
+Después se describirá el tratamiento de ficheros, ya sea su almacenamiento~\ref{sec:imagenes},~\ref{sec:descriptores} o su envío~\ref{sec:envioFicherosImplementacion}.
+
+Y por último, indicar algunos aspectos básicos de la implementación de la interfaz gráfica del servidor~\ref{sec:servidor_IG_Implementacion} y de la aplicación~\ref{sec:aplicacion_IG_Implementacion}.
+
+\section{Estructura de datos}
+\label{sec:estructuraDatos}
+Es importante manejar y almacenar la información básica de la aplicación para garantizar su usabilidad. Tras sopesarlo deliberadamente se opto por usar una estructura básica, como es las listas enlazadas~\ref{sec:listasEnlazadas}, que ofrezca una implementación sencilla pero a su vez permita realizar todo tipo de cambios con facilidad (téngase en cuenta que la API de java~\ref{sec:java} recoge todas las funcionalidades del tipo de datos \textit{ArrayList}).
+
+\subsection{Listas enlazadas}
+
+ \begin{figure}[H]
+ 	\centering
+    \includegraphics[width=0.95\textwidth, keepaspectratio]{img/EstructuraDeDatos}
+    \caption{Listas enlazadas}
+ \end{figure}
+ 
+\label{sec:listasEnlazadas}
+Cada proyecto tendrá asociada una lista de escenas que a su vez se enlazará, por cada escena, con una lista de salidas. Dicha lista de escenas será guardada (fichero \textit{listScene.tmp} dentro de la carpeta del proyecto) a lo largo de su edición para garantizar la estabilidad de la aplicación en caso de error.
+
+\begin{itemize}
+\item Obtener escena (~\ref{sec:obtenerEscena} y~\ref{sec:obtenerEscena2} )
+\item Modificar escena (~\ref{sec:modificarEscena} y~\ref{sec:modificarEscena2} )
+\item Eliminar escena (~\ref{sec:eliminarEscena} y~\ref{sec:eliminarEscena2} )
+\item Crear salida (~\ref{sec:crearSalida} y~\ref{sec:crearSalida2} )
+\item Corregir enlaces (~\ref{sec:corregirEnlaces} y~\ref{sec:corregirEnlaces2} )
+\end{itemize}
+
+Se cargará cuando se seleccione la opción de modificar la aventura (~\ref{sec:modificarAventura} y~\ref{sec:modificarAventura2} ) eliminará cuando se elimine la aventura (~\ref{sec:eliminarAventura} y~\ref{sec:eliminarAventura2} ) e iniciará cuando se cree la aventura (~\ref{sec:crearAventura}, ~\ref{sec:crearAventura2} y~\ref{sec:crearAventuraDeNuevo}, ~\ref{sec:crearAventuraDeNuevo2} ).
+
+Es de acceso global en la aplicación y ofrece todo tipo de métodos para garantizar la manipulación de los diferentes tipos de nodos (escenas y salidas).
+
+\section{Selección de área}
+\label{sec:seleccionArea}
+Para entender el proceso de selección de áreas de salida dentro de una escena empecemos primero comprendiendo como interactúa Canvas ``is a container that holds various drawing elements (lines, shapes, text, frames containing other elements, etc.)''~\cite{Canvas} con surfaceView ``is a special subclass of View that offers a dedicated drawing surface within the View hierarchy''.~\cite{CanvasAndSurfaceView}
+
+ \begin{figure}[H]
+ 	\centering
+    \includegraphics[width=0.8\textwidth, keepaspectratio]{img/surfaceView}
+    \caption{Diagrama de flujo surfaceView}
+ \end{figure}
+
+Como puede observarse en la figura 4.2, existe un hilo especializado \textit{Surface Child Thread} encargado de actualizar \textit{Surface} mediante el uso de Canvas. Primeramente se prepara el Canvas \textbf{lockCanvas()}, a continuación se realizan todas las operaciones de dibujado \textbf{draw} y por último se devuelve el control a \textit{Surface} \textbf{unlockCanvasAndPost()} y se muestra al usuario el resultado en el \textit{Display}. El hilo principal se encarga de recoger toda la actividad del usuario y actualizar las posiciones de los píxeles a dibujar en el \textbf{Display}.
+
+Una vez comprendido el funcionamiento, solo falta por explicar cómo se actualizan las coordenadas de los píxeles a través de la interacción con el usuario en el caso específico que nos encontramos, la aplicación eLearnT.
+
+La API (Application Program Interface) de Android distingue entre distintos tipos de eventos táctiles~\cite{EventosTactilesAndroid}, en especial, los utilizados para la recogida de datos han sido:
+
+\begin{itemize}
+\item \textbf{ACTION\_DOWN}: primer dedo pulsado.
+\item \textbf{ACTION\_UP}: primer dedo levantado.
+\item \textbf{ACTION\_POINTER\_DOWN}: se ha pulsado un dedo adicional al primero (p.ej. el segundo dedo).
+\item \textbf{ACTION\_POINTER\_UP}: se ha levantado un dedo diferente al primero (p.ej. el segundo dedo)
+\item \textbf{ACTION\_MOVE}: se mueve algún dedo pulsado.
+\end{itemize}
+
+Y se han utilizado tres modalidades de actualización de coordenadas:
+\begin{itemize}
+\item \textbf{Move}: movimiento a lo largo de la pantalla con un dedo pulsado.
+\item \textbf{Zoom Zone}: dejando un dedo fijo (referencia) utilizar el otro en la dirección a ampliar, siempre alineado con el primero, es decir, por ejemplo, para expandir el lado vertical derecho sería necesario colocar el dedo de referencia a la izquierda del dedo secundario, y este a su vez, a lo largo del eje horizontal. 
+\item \textbf{Zoom}: convencional. Utilizar los dos dedos para expandir el área de selección por completo o contraerlo. Ambos dedos tienen que estar alineados respecto al eje horizontal o vertical, respectivamente.
+\end{itemize}
+
+Con todo esto es posible dar al usuario un método sencillo y manejable de selección de áreas de salida.
+
+
+\section{Interacción entre actividades}
+\label{sec:interaccionEntreActividades}
+En especial, lo que nos interesa para la aplicación es entender cómo iniciar, gestionar cuando reinicie o destruir una actividad.
+
+ \begin{figure}[H]
+ 	\centering
+    \includegraphics[width=0.7\textwidth, keepaspectratio]{img/CicloVidaActividades}
+    \caption{Ciclo de vida de las actividades~\cite{Actividades}}
+ \end{figure}
+ 
+\textbf{\\Inciar actividad:}\\[4mm]
+// Iniciar intent con el contexto de la actividad actual y la clase de la actividad a iniciar\\
+Intent i = new Intent(Context packageContext, Class$<?>$ cls);\\
+// Si se desea intercambiar datos entre actividades\\
+i.putExtra(String name, String value);\\
+// Lanzar la actividad\\
+startActivity(i);
+
+\textbf{\\Reiniciar actividad:}\\[-14mm]
+\begin{tabbing}
+// \hspace{0.5em} \= Ident \kill \\
+/**\\
+$*$ Metodo para gestionar el reinicio de una actividad\\
+$*$/\\
+@Override\\
+protected void onRestart() \{\\
+\> super.onRestart();\\
+\>	// do actions\\
+\} 
+\end{tabbing}
+    
+\textbf{\\Finalizar actividad:}\\[4mm]
+finish();\\
+
+Además, también conviene entender cómo gestionar su creación y en el caso de la selección de áreas de salida~\ref{sec:seleccionArea} su pausa y puesta en marcha de nuevo.
+
+\textbf{\\Crear actividad:}\\[-14mm]
+\begin{tabbing}
+// \hspace{0.5em} \= Ident \kill \\
+/**\\
+$*$ Gestionar la creacion de una actividad\\
+$*$\\
+$*$ @param savedInstanceState para guardar los valores de la actividad\\
+$*$/\\
+@Override\\
+public void onCreate(Bundle savedInstanceState) \{\\
+\> super.onCreate(savedInstanceState);\\
+\\		
+\> // Mapear componentes de la actividad definidos en el fichero xml\\
+\> setContentView(R.layout.nameActivityXml);\\
+\>	// do actions\\
+\}
+\end{tabbing}
+
+\textbf{\\Pausar actividad:}\\[-14mm]
+\begin{tabbing}
+// \hspace{0.5em} \= Ident \kill \\
+/**\\
+$*$ Metodo para gestionar la pausa de una actividad\\
+$*$/\\
+@Override\\
+protected void onPause() \{\\
+\> super.onPause();\\
+\>	// do actions\\
+\} 
+\end{tabbing}
+
+\textbf{\\Reanudar actividad:}\\[-14mm]
+\begin{tabbing}
+// \hspace{0.5em} \= Ident \kill \\
+/**\\
+$*$ Metodo para gestionar la reanudacion de una actividad\\
+$*$/\\
+@Override\\
+protected void onResume() \{\\
+\> super.onResume();\\
+\>	// do actions\\
+\} 
+\end{tabbing}
+
+\section{Ficheros}
+\label{sec:ficheros}
+Para tener un correcto funcionamiento del proyecto en general, es necesario realizar una gestión de ficheros adecuada que garantice el trámite de información entre sus diversas partes (aplicación, servidor y eAdventureEditor).
+
+\subsection{Guardando/Cargando Imágenes}
+\label{sec:imagenes}
+Tema bastante polémico, ya que realizar una decodificación inadecuada de las imágenes pudiera producir un excesivo uso de memoria y sus consiguientes errores.\\[-4mm]
+
+Para evitarlo se ha optado por reducir la calidad al obtener la imagen de la galería del dispositivo~\ref{sec:obtenerEscena2} (opción 2):\\[-14mm]
+\begin{tabbing}
+// \hspace{0.5em} \= Ident \kill \\
+\> // Load image\\ 
+\> is = getContentResolver().openInputStream(selectedImage);\\
+\> BufferedInputStream bis = new BufferedInputStream(is);\\
+\\[-5mm]
+\> // Change to RGB\_565 to down memory usage\\
+\> BitmapFactory.Options options = new BitmapFactory.Options();\\
+\> options.inPreferredConfig = Config.RGB\_565;\\
+\> Bitmap bitmap = BitmapFactory.decodeStream(bis, null, options);\\[-4mm]
+\end{tabbing}
+
+Exactamente se ha realizado el mismo procedimiento al cargar las imágenes para mostrarlas en la aplicación (~\ref{sec:seleccionarEscenaGaleria}, ~\ref{sec:seleccionarAreaSalida2} ) ya que es preferible un funcionamiento fluido en contraposición con un aspecto visual extremadamente detallado. Además, se han adaptado las imágenes a las resoluciones necesarias para su posterior uso:
+
+\textit{scaled = Bitmap.createScaledBitmap(bitmap, width, height, true);} (donde width y height corresponden a las dimensiones en píxeles)\\[-1mm]
+
+A su vez, bajar demasiado la resolución pudiera causar en el usuario una insatisfacción visual innecesaria a la hora de probar la aventura en el editor de eAdventure.
+
+Para ello, se ha aumentado ligeramente la calidad cuando las imágenes son tomadas desde la cámara~\ref{sec:obtenerEscena2} (opción 1):\\[-14mm]
+\begin{tabbing}
+// \hspace{0.5em} \= Ident \kill \\
+\> // Change quality\\
+\> BitmapFactory.Options options = new BitmapFactory.Options();\\
+\> options.inScaled = false;\\
+\> options.inDither = false;\\
+\> options.inPreferredConfig = Bitmap.Config.ARGB\_8888;\\
+\> Bitmap bm = BitmapFactory.decodeFile(path\_dir + ``/" $+$ name, options);
+\end{tabbing}
+
+$ $\\[-4mm]
+Rotando la imagen si fuera necesario:\\[-14mm]
+\begin{tabbing}
+// \hspace{0.5em} \= Ident \kill \\
+\> // Get Bounds\\
+\> BitmapFactory.Options bounds = new BitmapFactory.Options();\\
+\> bounds.inJustDecodeBounds = true;\\
+\> BitmapFactory.decodeFile(path\_dir + "/" + name, bounds);\\
+\\[-4mm]
+\> // Read EXIF Data\\
+\> ExifInterface exif = null;\\
+\> try \= \{\\
+\> \> exif = new ExifInterface(path\_dir + "/" + name);\\	
+\> \} \= catch (IOException e) \{\\
+\> \> error = true;\\	
+\> \}\\
+\\[-5mm]
+\> // Get orientation\\
+\> String orientString = exif.getAttribute(ExifInterface.TAG\_ORIENTATION);\\
+\> int \= orientation =\\
+\> \> orientString != null ? Integer.parseInt(orientString) : ExifInterface.ORIENTATION\_NORMAL;\\
+\> int rotationAngle = 0;\\
+\> if (orientation == ExifInterface.ORIENTATION\_ROTATE\_90) rotationAngle = 90;\\
+\> if (orientation == ExifInterface.ORIENTATION\_ROTATE\_180) rotationAngle = 180;\\
+\> if (orientation == ExifInterface.ORIENTATION\_ROTATE\_270) rotationAngle = 270;\\
+\\[-5mm]
+\> // Rotate Bitmap\\
+\> Matrix matrix = new Matrix();\\
+\> matrix.setRotate(rotationAngle, (float) bm.getWidth() / 2, (float) bm.getHeight() / 2);\\
+\> Bitmap \= rotatedBitmap =\\
+\> \> Bitmap.createBitmap(bm, 0, 0, bounds.outWidth, bounds.outHeight, matrix, true);\\
+\end{tabbing}
+
+Por último, se han gestionado los posibles errores de exceso de memoria, mostrando al usuario el siguiente aviso \textit{Memoria ocupada, espere un momento}. Se ha optado por esta opción para no tener que reducir aún más la calidad de las imágenes.
+
+\subsection{Generando descriptores xml}
+\label{sec:descriptores}
+Existen tres tipos de ficheros \textit{.xml} que recogen las propiedades de la aventura (figura 4.4) y las relaciones entre escenas (figura 4.5 y 4.7).
+
+ \begin{figure}[H]
+ 	\centering
+    \includegraphics[width=0.8\textwidth, keepaspectratio]{img/descriptorXML}
+    \caption{descriptor.xml}
+ \end{figure}
+
+Cuando creemos una aventura (~\ref{sec:crearAventura2}, ~\ref{sec:crearAventuraDeNuevo2} ), se creará el fichero descriptor.xml. De entre todas las etiquetas, póngase énfasis especialmente en dos, \textit{title} y \textit{graphics} (atributo \textit{mode}), es aquí donde se recoge la selección del usuario. En el caso de la figura 4.4:
+
+\begin{itemize}
+\item Título de lo aventura: \textbf{3}
+\item Modo gráfico: \textbf{fullscreen}
+\end{itemize}
+
+Otro detalle a tener en cuenta es que, al no hacer uso de objetos en la aventura, se ha deshabilitado la barra de inventario \textit{invetoryPosition=``\textbf{none}"} para tener un mayor área de selección de salidas.
+ 
+ \begin{figure}[H]
+ 	\centering
+    \includegraphics[width=0.8\textwidth, keepaspectratio]{img/projectXML}
+    \caption{project.xml}
+ \end{figure}
+ 
+A lo largo de la edición de la aventura, cada vez que se cree una escena, esta, será posicionada dentro de un cuadro de relaciones inter-escena (figura 4.6), para ello se le asignarán unas coordenadas X e Y debidamente equiespaciadas (figura 4.5).
+ 
+ \begin{figure}[H]
+ 	\centering
+    \includegraphics[width=0.65\textwidth, keepaspectratio]{img/cuadroEdicionEadventureEditor}
+    \caption{Relación entre escenas (eAdventureEditor)}
+ \end{figure}
+ 
+ \begin{figure}[H]
+ 	\centering
+    \includegraphics[width=0.8\textwidth, keepaspectratio]{img/chapter1XML}
+    \caption{chapter1.xml}
+ \end{figure}
+ 
+Cada escena tiene asociado un id, nombre de imagen (con extensión) y salidas correspondientes. Las salidas tendrán asociado un id (escena con la que enlazan) y un texto a mostrar. En la figura 4.7:
+
+\begin{itemize}
+\item Id de la escena: etiqueta \textit{scene} atributo \textit{id} valor \textbf{1}
+\item Nombre de la imagen: etiqueta \textit{asset} atributo \textit{uri} valor \textbf{1.jpg}
+\item Id de la escena con la que enlaza la salida: etiqueta \textit{exit} atributo \textit{idTarget} valor \textbf{2}
+\item Texto a mostrar en la salida: etiqueta \textit{exit-look} atributo \textit{text} valor \textbf{``"} (no muestra nada)
+\end{itemize}
+
+\subsection{Envío}
+\label{sec:envioFicherosImplementacion}
+Al tratarse de una conexión TCP (Transmission Control Protocol), orientada a conexión y que garantiza la ordenación de los paquetes (\textit{segmentos TCP}) a lo largo de la transmisión, se ha empleado un algoritmo bastante sencillo que consiste en leer los bloques del fichero a través de un \textit{buffer} y a continuación ir enviándolos al servidor a través de un \textit{OutputStream} (\textbf{PrintStream}). Previamente se enviará el nombre del fichero y se esperara su confirmación (\textit{br.readLine()}), esto es así, para garantizar la sincronización a la hora de realizar el envío de bloques del fichero. Por cada fichero se establecerá una conexión TCP y al finalizar la transmisión se cerrará para indicarle al bucle de lectura de datos en el servidor que ya ha terminado la transmisión.
+
+\section{Interfaz gráfica}
+\label{sec:interfazGraficaImplementacion}
+En las siguientes subsecciones daremos detalles de la implementación gráfica del servidor y de la aplicación.
+
+\subsection{Servidor}
+\label{sec:servidor_IG_Implementacion}
+Para la implementación de la interfaz gráfica del servidor se ha hecho uso de \textit{Java Swing} ``Swing es una biblioteca gráfica para Java. Incluye widgets para interfaz gráfica de usuario tales como cajas de texto, botones, desplegables y tablas.''~\cite{JavaSwing}
+
+ \begin{figure}[H]
+ 	\centering
+    \includegraphics[width=0.8\textwidth, keepaspectratio]{img/Java_Swing}
+    \caption{Utilizando Java Swing}
+ \end{figure}
+
+\subsection{Aplicación}
+\label{sec:aplicacion_IG_Implementacion}
+Se ha adaptado la interfaz gráfica a distintas resoluciones para que soporte diferentes dispositivos de Android. Téngase en cuenta que al no disponer de suficientes dispositivos (físicamente) no se puede garantizar su correcta visualización en todas las resoluciones.
+
+ \begin{figure}[H]
+ 	\centering
+    \includegraphics[width=0.9\textwidth, keepaspectratio]{img/ResolucionesAndroid}
+    \caption{Resoluciones soportadas}
+ \end{figure}
+
+Como cada dispositivo tiene asociada una resolución, destinando un fichero \textit{strings.xml} para cada una de ellas es posible adaptar las \textit{dimensiones} (internas o relativas) de los distintos componentes (botones, textos editables, imágenes, títulos, etc.).  
+
+ \begin{figure}[H]
+ 	\centering
+    \includegraphics[width=0.95\textwidth, keepaspectratio]{img/CarpetasResoluciones}
+    \caption{Gestión de diferentes resoluciones}
+ \end{figure}
+
+Dispositivos utilizados:
+\begin{itemize}
+\item Sony Xperia Tipo ST21i (3.2") \textbf{dispositivo base}
+\item Sony Xperia Z1 (4.7")
+\item Wolder miTablink (7")
+\item Arnova 10C G3 (10.1")
+\end{itemize}
+
+
+\newpage
+\chapter{Publicación}
+Para cumplir uno de los principales objetivos del proyecto~\ref{sec:descripcionProblemas} se procederá a 
+publicar la aplicación y el servidor bajo una licencia que garantice los principios del software libre \url{http://www.gnu.org/philosophy/free-sw.es.html}. Esto es, derecho a modificar, utilizar y
+distribuir el programa (tanto modificado como original) libremente para el uso que se desee, garantizando ciertos
+derechos de autor, como exigir el uso de la misma licencia o no negar la autoría.
+
+\section{Tipo de licencia}
+La licencia elegida ha sido General Public License de GNU versión 3, ya que cumple con los criterios anteriormente definidos
+en la sección, evitando restricciones innecesarias en la liberación del software.
+
+Para ello se ha incluido en cada fichero fuente (tanto de la aplicación como del servidor) un resumen de la licencia y el copyright (\textit{Copyright (C) 2014  José Ignacio Madan Frías}), también indicado en las interfaces, véase \url{http://www.gnu.org/licenses/gpl-3.0.html#howto}. Además se ha añadido un fichero (\textit{COPYING}) que contiene todas las especificaciones de la licencia.
+
+
+\newpage
+\chapter{Conclusiones}
+En el marco general del aprendizaje electrónico aporta una herramienta con gran utilidad, más en concreto,
+supone para eAdventure una alternativa a la hora de crear aventuras educativas sencillas bastante útil, manejable
+y funcional. Espero ante todo que finalicen con éxito el proyecto eAdventure-Android, que supone un gran avance dentro
+del entorno del aprendizaje electrónico móvil, \textit{M-learning} (móviles, tabletas, iPod, dispositivos pequeños en general) y no menos importante, que el proyecto aquí presente les sirva de utilidad.
+
+Como opinión personal, a pesar de haberme introducido plenamente en las nuevas tecnologías y su concepción de interacción 
+usuario-dispositivo mediante la pantalla táctil, sigo pensando que no es una gran idea, por tener que multiplexar en tiempo la pantalla, está bien el concepto de integrar al máximo las partes que componen un terminal, pero el precio que se paga es alto, la visibilidad. Como alternativa, existen medios de interacción externos al dispositivo, pero a la vez integrados en él, es decir, no utilizan espacio de la pantalla, por ejemplo, teclado y ratón láser. O incluso separar la pantalla mediante un proyector (\textit{picoproyector}). Todos ellos pueden ser una buena extensión para nuestros dispositivos actuales, y puntos intermedios para lo que, a mi parecer, podría formar parte de nuestras vidas en cierto momento, me refiero a la integración de captación de datos en el propio usuario. 
+
+\section{Lecciones aprendidas}
+Fueron muchas las lecciones aportadas a través de la ejecución del proyecto,
+por lo que puede considerarse una experiencia formativa enriquecedora. Aquí
+se presentan algunas de ellas:
+
+\begin{itemize}
+\item Aprendizaje efectivo y constituyente del manejo de las APIs de Android
+\item Creación de interfaces gráficas sencillas e intuitivas
+\item Interacción desarrollador-cliente
+\item Actualización de software
+\item Acuerdo diseño-implementación
+\item Creación de prototipos
+\end{itemize}
+
+\section{Conocimientos aplicados}
+Principalmente informáticos, más en particular, entendimiento y correcta utilización del lenguaje de programación \textit{Java}, encontrándome con la dificultad de tener que trabajar con APIs nuevas, y por lo tanto, tener que enfrentarme a dicho problema. Además, estar familiarizado con el entorno de desarrollo integrado \textit{Eclipse} ha facilitado mucho el proceso de creación del proyecto (tanto de la aplicación como del servidor).
+
+Desde un punto de vista más centrado en las telecomunicaciones, la concepción cliente-servidor, en específico, el entendimiento del protocolo TCP (\textit{Transmission Control Protocol}) a garantizado el correcto funcionamiento de la parte final de la aplicación, poder enviar la aventura previamente creada para probarla con eAdventureEditor como alternativa al uso de medios físicos (cable USB \textit{Universal Serial Bus}).
+
+\section{Trabajos futuros}
+Estaría bastante bien añadir más funcionalidad a la aplicación, es decir, poder crear aventuras educativas completas incluyendo personajes, diálogos, objetos, visión en tercera persona, etc. Afortunadamente, se está realizando un proyecto que cumple estas características~\ref{sec:proyectosSimilares}. Contando con que son los creadores de la plataforma eAdventure, con lo que poseen toda la experiencia y conocimientos acerca de su funcionamiento, sé que estará en buenas manos.
+
+En un caso particular, este proyecto puede ser un buen impulsor para introducirme dentro del mundo del desarrollo de aplicaciones para Android.
+
+
+\cleardoublepage
+
+\appendix
+\chapter{Instalación}
+\label{sec:instalacion}
+Primero empecemos con la aplicación. Antes de nada, es necesario activar la opción \textbf{Orígenes desconocidos} que permite al usuario instalar aplicaciones que no pertenecen al Market (Google play entre otros), para ello diríjase dentro de su dispositivo a Ajustes/Seguridad o Ajustes/Aplicaciones (según la versión de Android que tenga).
+
+Después copie el fichero Elearnt.apk en el dispositivo Android, ya sea a través del cable USB o estableciendo una conexión cliente-servidor utilizando una aplicación especifica, por ejemplo, AirDroid \url{http://airdroid.com/}. Una vez copiado el fichero, búsquelo dentro del dispositivo con cualquier gestor de ficheros, por ejemplo, Root Browser \url{https://play.google.com/store/apps/details?id=com.jrummy.root.browserfree} (si no posee uno propio el terminal), a continuación ejecútelo para que proceda la instalación aceptando los permisos que requiere.\\
+Estos son:
+
+\textbf{Almacenamiento}
+\textit{modificar/eliminar contenido de la tarjeta SD}
+
+\textbf{Comunicación de red}
+\textit{acceso integro a Internet}\\
+
+Pasemos al servidor, basta con extraer el fichero \textit{ElearntServer.rar} y ejecutar \textit{ElearntServer.jar}, téngase en cuenta que la
+carpeta /bin contenida dentro del archivo comprimido tiene que estar en el mismo directorio que el archivo \textit{ElearntServer.jar}
+
+Si se encuentra en \textit{Linux}, tendrá que cambiar los permisos del fichero \textit{ElearntServer.jar} para que permita la ejecución, para ello abra un terminal y ejecute:
+
+cd (Directorio donde se encuentra ElearntServer.jar)\\
+chmod 700 ElearntServer.jar
+
+\section{Requisitos}
+\label{sec:requisitos}
+Los requisitos previos a la puesta en marcha de las herramientas son:
+\begin{itemize}
+\item \textit{Sistema operativo Android}. \\
+Es necesario que el dispositivo tenga instalado al menos la versión 2.2 \textit{Froyo}. Aunque durante el desarrollo
+ha sido probada con versiones superiores 4.0 \textit{Ice Cream Sandwich} y 4.4 \textit{KitKat}, por no disponer de
+terminales específicos. Además incluye soporte con la última versión 5.0 \textit{Lollipop} (no ha sido probada).
+\item \textit{Máquina virtual de Java}. \\
+Al menos será necesario tener instalada la versión 1.7 de la maquina virtual de Java \textit{jre 7}.
+\item \textit{Misma subred}. \\
+Para poder realizar la transferencia de ficheros (imágenes y propiedades) es necesario que tanto el servidor
+como el dispositivo Android, estén conectados a la misma red, esto es, a través de un router en común.
+\item \textit{eAdventure}. \\
+Tener instalada la plataforma de creación de juegos educativos eAdventure, actualmente con versión \textit{1.5-Release Candidate 4} \url{http://e-adventure.e-ucm.es/download/}
+\end{itemize}
+
+
+\chapter{Manual de usuario}
+\label{sec:manualUsuario}
+Antes de comenzar asegúrese de tener correctamente instalados la aplicación y el servidor~\ref{sec:instalacion}, además de cumplir los requisitos necesarios~\ref{sec:requisitos}.
+
+\section{Comenzando}
+
+ \begin{figure}[H]
+ 	\centering
+    \includegraphics[width=0.8\textwidth, keepaspectratio]{img/MU_Main}
+    \caption{Menú principal.}
+ \end{figure}
+Pulse el botón \textbf{Crear Proyecto} para pasar a la edición de las propiedades de la aventura. Sí desea salir de la aplicación basta con pulsar el botón \textbf{Salir}, alternativamente, pulse dos veces el botón \textit{atrás}, la primera vez que lo pulse será informado \textit{Pulse atras de nuevo si desea salir.}
+
+\section{Crear Aventura}
+\label{sec:crearAventura2}
+
+ \begin{figure}[H]
+ 	\centering
+    \includegraphics[width=0.8\textwidth, keepaspectratio]{img/MU_CrearAventura}
+    \caption{Crear aventura.}
+ \end{figure}
+Todas las aventuras serán guardadas dentro de la carpeta indicada en el mensaje de aviso, en el ejemplo \textbf{/storage/sdcard/Projects}
+
+Introduzca el nombre que le quiere asignar a la aventura (en caso de no hacerlo le será asignado uno por defecto) y seleccione la opción de visualización (ventana por defecto):
+\begin{itemize}
+\item Ventana (de tamaño estándar)
+\item Ventana con el fondo en negro
+\item Pantalla completa (opción solo válida para el sistema operativo Windows)
+\end{itemize}
+
+Si prefiere editar una aventura que ya creo anteriormente, selecciónela en la lista desplegable situada junto a la parte
+para introducir el nombre de la aventura, en la figura B.3 el cuadro con el texto \textit{Manual de usuario}.
+
+Para ambas situaciones, a continuación presione en \textbf{Continuar}. Si crea una nueva aventura sin nombre, se le indicará el nombre por defecto que se le ha puesto \textit{Nombre de la aventura por defecto: x} (donde x es el nombre asignado). 
+ \begin{figure}[H]
+ 	\centering
+    \includegraphics[width=0.8\textwidth, keepaspectratio]{img/MU_CrearAventuraExistente}
+    \caption{Seleccionar aventura existente.}
+ \end{figure}
+ 
+\section{Crear Aventura de Nuevo}
+\label{sec:crearAventuraDeNuevo2}
+
+ \begin{figure}[H]
+ 	\centering
+    \includegraphics[width=0.8\textwidth, keepaspectratio]{img/MU_CrearAventuraDeNuevo}
+    \caption{Crear aventura de nuevo.}
+ \end{figure}
+Si desea cambiar el nombre de la aventura y su modo gráfico, indíquelo introduciendo el texto y seleccionando el modo de visualización~\ref{sec:crearAventura}. Por
+defecto, se asignará el mismo nombre y modo gráfico que tenia la aventura.
+
+A continuación presione en \textbf{Continuar}, la aventura será creada de nuevo, por lo que no existirán escenas ni enlaces.
+ 
+\section{Modificar Aventura}
+\label{sec:modificarAventura2}
+Si desea cambiar el nombre de la aventura y su modo gráfico, indíquelo introduciendo el texto y seleccionando el modo de visualización~\ref{sec:crearAventura}. Por
+defecto, se asignará el mismo nombre que tenia la aventura y modo gráfico.
+
+A continuación presione en \textbf{Continuar}, la aventura conservará todas las escenas y enlaces previamente creados.
+ \begin{figure}[H]
+ 	\centering
+    \includegraphics[width=0.8\textwidth, keepaspectratio]{img/MU_ModificarAventura}
+    \caption{Modificar aventura.}
+ \end{figure}
+
+\section{Eliminar Aventura}
+\label{sec:eliminarAventura2}
+Presione en \textbf{Continuar}, para eliminar la aventura por completo, esto es, además de perder todas la escenas y enlaces creados, no aparecerá en la lista
+de aventuras previamente creadas, ya que se habrá borrado del directorio de aventuras~\ref{sec:crearAventura}.
+ \begin{figure}[H]
+ 	\centering
+    \includegraphics[width=0.8\textwidth, keepaspectratio]{img/MU_EliminarAventura}
+    \caption{Eliminar aventura.}
+ \end{figure}
+
+\section{Enviar Aventura}
+\label{sec:enviarAventura2}
+
+ \begin{figure}[H]
+ 	\centering
+    \includegraphics[width=0.8\textwidth, keepaspectratio]{img/MU_EnviarAventura}
+    \caption{Enviar aventura.}
+ \end{figure}
+ 
+Si lo que desea es pasar a la ventana donde poder enviar la aventura~\ref{sec:enviarFicheros2} presione \textbf{Continuar}.
+
+\section{Obtener Escena}
+\label{sec:obtenerEscena2}
+
+ \begin{figure}[H]
+ 	\centering
+    \includegraphics[width=0.8\textwidth, keepaspectratio]{img/MU_ObtenerEscena}
+    \caption{Obtener escena.}
+ \end{figure}
+Introduzca el nombre de la escena si lo desea (no es necesario, se asigna un nombre por defecto).
+Después seleccione el modo de obtención de la escena:
+
+1) Tomar Imagen (se obtendrá la escena mediante la realización de una fotografía con la cámara de su dispositivo)
+ \begin{figure}[H]
+ 	\centering
+    \includegraphics[width=0.8\textwidth, keepaspectratio]{img/MU_HacerFotografia}
+    \caption{Hacer fotografía.}
+ \end{figure}
+
+2) Obtener de la galería (se obtendrá de la galería de imágenes del dispositivo)
+ \begin{figure}[H]
+ 	\centering
+    \includegraphics[width=0.8\textwidth, keepaspectratio]{img/MU_SeleccionarImagen}
+    \caption{Seleccionar imagen.}
+ \end{figure}
+
+Por último, presione el botón \textbf{OK}. Si el nombre introducido ya está en uso le será indicado mediante el siguiente aviso \textit{El nombre de la escena ya esta utilizado},
+a su vez, también le será indicado si no ha seleccionado ningún modo de obtención de la escena \textit{Seleccione Tomar Imagen u Obtener de la galería}. Si no se le ha asignado ningún nombre a la escena, aparecerá el siguiente mensaje \textit{Nombre de la escena por defecto: x} (donde x es el nombre que se le ha asignado).
+
+\section{Modificar Escena}
+\label{sec:modificarEscena2}
+
+Pulse en \textbf{Buscar} para seleccionar la escena a modificar en la galería de escenas~\ref{sec:galeriaEscenas}. A continuación, introduzca el nombre (si desea cambiar el actual).
+
+Seleccione el modo de obtención de la escena~\ref{sec:obtenerEscena2} (si desea obtenerla de nuevo).
+
+Por último presione en \textbf{OK}, después se abrirá una nueva ventana con la escena a editar~\ref{sec:seleccionarAreaSalida2}. Si se ha producido el cambio de nombre de manera satisfactoria le será indicado \textit{Nombre de la escena: x} (donde x es el nuevo nombre de la escena), en caso contrario se mostrará \textit{El nombre de la escena ya esta utilizado}; si no se ha introducido un nombre nuevo, también le será indicado de la misma forma para tener constancia del nombre actual de la escena. En caso de no haber seleccionado ninguna escena previa de la galería, se mostrará el siguiente aviso \textit{Por favor, seleccione la escena a modificar en la lista}.
+
+ \begin{figure}[H]
+ 	\centering
+    \includegraphics[width=0.8\textwidth, keepaspectratio]{img/MU_ModificarEscena}
+    \caption{Modificar escena.}
+ \end{figure}
+
+En caso de no existir escenas, figura B.12, si pulsa \textbf{OK} le será indicado \textit{No existen escenas creadas}.
+
+  \begin{figure}[H]
+  	\centering
+     \includegraphics[width=0.8\textwidth, keepaspectratio]{img/MU_ModificarEscena_SinEscenas}
+     \caption{Modificar escena (no existen escenas).}
+  \end{figure}
+ 
+\section{Eliminar Escena}
+\label{sec:eliminarEscena2}
+
+ \begin{figure}[H]
+ 	\centering
+    \includegraphics[width=0.8\textwidth, keepaspectratio]{img/MU_EliminarEscena}
+    \caption{Eliminar escena.}
+ \end{figure}
+Pulse en \textbf{Buscar} para seleccionar la escena a eliminar en la galería de escenas~\ref{sec:galeriaEscenas}. A continuación presione \textbf{OK}, la escena será borrada por completo junto a sus enlaces (en caso de no haberse seleccionado \textit{Por favor, seleccione la escena a eliminar en la lista}). Si no existiesen escenas creadas, figura B.14, si pulsa \textbf{OK} le será indicado \textit{No existen escenas creadas}.
+
+ \begin{figure}[H]
+ 	\centering
+    \includegraphics[width=0.8\textwidth, keepaspectratio]{img/MU_EliminarEscena_SinEscenas}
+    \caption{Eliminar escena (no existen escenas).}
+ \end{figure}
+ 
+\section{Seleccionar Escena en la Galería}
+\label{sec:galeriaEscenas}
+
+ \begin{figure}[H]
+ 	\centering
+    \includegraphics[width=0.8\textwidth, keepaspectratio]{img/MU_GaleriaEscenas}
+    \caption{Seleccionar escena en la galería.}
+ \end{figure}
+Muévase a lo largo de la galería en busca de la escena que desea seleccionar, a continuación púlsela.
+
+\section{Seleccionar Área de Salida}
+\label{sec:seleccionarAreaSalida2}
+La primera vez que entre en la ventana de edición de crear enlaces de escena (salidas), le aparecerán las siguientes instrucciones:
+\begin{itemize}
+\item \textit{Con un dedo fijo, mueva el otro para ampliar la zona que desee}.
+\item \textit{Presione dos veces seguidas dentro del area para crear la salida}.
+\item \textit{Mueva los dos dedos a la vez para hacer zoom (vertical u horizantalmente)}.
+\item \textit{Presione atras para finalizar}.
+\end{itemize}
+
+Puede ir probando su funcionamiento sobre la marcha. En el caso del \textit{zoom por zonas}, siempre ha de tener un dedo de presionado que actuará como referencia, para cambiar de dedo base, es necesario, no solo dejar pulsado el próximo dedo que actuará de referencia, sino también levantar el dedo base anterior para actualizar la referencia; una vez fijado el dedo base, \textbf{primer dedo presionado fijo}, puede desplazarlo a lo largo de la pantalla para cambiar el punto de referencia. En cuanto al \textit{zoom} convencional, podrá ampliar exteriormente el área alejando ambos dedos y viceversa si desea acercarla, ambas opciones a lo largo del eje horizontal y vertical.
+
+Por último, presione el botón \textbf{atrás} si ha finalizado la edición o dos veces seguidas dentro del área si desea crear una salida~\ref{sec:crearSalida2}.
+
+ \begin{figure}[H]
+ 	\centering
+    \includegraphics[width=0.8\textwidth, keepaspectratio]{img/MU_SeleccionarAreaSalida}
+    \caption{Seleccionar área de salida.}
+ \end{figure}
+
+\section{Crear Salida}
+\label{sec:crearSalida2}
+Busque (presione en \textbf{Buscar}) la escena con la que quiere enlazar en la galería de escenas~\ref{sec:galeriaEscenas}, si no se hubiese creado todavía introduzca el nombre de la escena manualmente (de no hacerlo se asignará por defecto \textit{Escena a la que enlaza por defecto: x}, donde x es el nombre de la escena) una vez creada la verdadera escena con la que se quería enlazar siempre podrá corregir el enlace, véase~\ref{sec:corregirEnlaces2}. A continuación indique el texto a mostrar en la salida cuando el usuario este situado sobre ella (por defecto no se mostrará nada).
+
+Por último, presione en \textbf{Finalizar} para crear la salida o \textbf{atrás} en caso contrario.
+
+ \begin{figure}[H]
+ 	\centering
+    \includegraphics[width=0.8\textwidth, keepaspectratio]{img/MU_CrearSalida}
+    \caption{Crear salida.}
+ \end{figure}
+ 
+Si no existiesen salidas la opción \textbf{Buscar} estaría deshabilitada, figura B.18. Téngase en cuenta que no está permitido el auto-enlace.
+
+ \begin{figure}[H]
+ 	\centering
+    \includegraphics[width=0.8\textwidth, keepaspectratio]{img/MU_CrearSalida_SinEscenas}
+    \caption{Crear salida (no existen escenas).}
+ \end{figure}
+ 
+\section{Corregir Enlaces}
+\label{sec:corregirEnlaces2}
+Seleccione la escena en la cual quiere corregir los enlaces (pulse \textbf{Buscar}), de no hacerlo le será indicado \textit{Por favor, seleccione la escena a corregir en la lista}, a continuación presione \textbf{OK}. De no existir enlaces creados en la escena se mostrará, \textit{No existen enlaces creados}.
+
+ \begin{figure}[H]
+ 	\centering
+    \includegraphics[width=0.8\textwidth, keepaspectratio]{img/MU_CorregirEnlaces}
+    \caption{Corregir enlaces.}
+ \end{figure}
+ 
+De no existir escenas creadas le será informado \textit{No existen escenas con las que enlazar}. Ver figura B.20.
+
+ \begin{figure}[H]
+ 	\centering
+    \includegraphics[width=0.8\textwidth, keepaspectratio]{img/MU_CorregirEnlaces_SinEscenas}
+    \caption{Corregir enlaces (no existen escenas).}
+ \end{figure}
+
+ \begin{figure}[H]
+ 	\centering
+    \includegraphics[width=0.75\textwidth, keepaspectratio]{img/MU_CorregirSalida}
+    \caption{Corregir salida.}
+ \end{figure}
+
+A continuación se abrirá una ventana por cada enlace creado, donde se muestra la escena con el área de salida en rojo, ver figura B.21. Selecciona la escena con la que enlazar (pulse el botón \textbf{Buscar}) e introduzca el texto a mostrar en la salida~\ref{sec:crearSalida2} (por defecto se introducirá el texto que asigno previamente). A continuación presione en \textbf{Corregir}. De no haber seleccionado una escena enlazable en la lista se mostrará el siguiente aviso \textit{Por favor, seleccione la escena con la que enlazar en la lista}. Si por el contrario quiere eliminar el enlace, pulse en \textbf{Eliminar}. Para conservar el enlace con las propiedades actuales presione \textbf{atrás}.
+
+Si no existiesen escenas válidas con las que enlazar solo se podrá eliminar el enlace, figura B.22.
+
+ \begin{figure}[H]
+ 	\centering
+    \includegraphics[width=0.75\textwidth, keepaspectratio]{img/MU_CorregirSalida_SinEscenas}
+    \caption{Corregir salida (sin escenas enlazables).}
+ \end{figure}
+ 
+\section{Finalizando}
+Una vez finalizada la aventura dentro de la ventana de edición de escenas (~\ref{sec:obtenerEscena2}, ~\ref{sec:modificarEscena2}, ~\ref{sec:eliminarEscena2}, ~\ref{sec:corregirEnlaces2}) presione en \textbf{Finalizar}. Si no existen enlaces erróneos pasará a la ventana donde podrá enviar los ficheros de la aventura~\ref{sec:enviarFicheros2}. En caso contrario hasta que no corrija todos los enlaces no se le dejará terminar (\textit{Existen enlaces erróneos, pulse Finalizar de nuevo y corríjalos}). Idénticamente pasará si pulsa \textbf{atrás}, poniendo en el aviso \textit{atras} en vez de \textit{Finalizar}. Esto es así para evitar enviar aventuras inconsistentes.
+ 
+\section{Preparar el servidor}
+\label{sec:prepararServidor}
+
+ \begin{figure}[H]
+ 	\centering
+    \includegraphics[width=0.8\textwidth, keepaspectratio]{img/MU_Servidor}
+    \caption{Preparar el servidor.}
+ \end{figure}
+
+Para garantizar el correcto funcionamiento de la puesta en marcha del servidor siga los pasos indicados teniendo en cuenta:
+\begin{itemize}
+\item Si tiene el proyecto abierto de anteriores veces, ciérrelo y vuelva a abrirlo para garantizar la actualización de las propiedades y enlaces creados.
+\item Para crear/cargar el proyecto, punto 1 y 4, tendrá que buscar el ejecutable \\\textit{eAdventureEditor} al menos una vez.
+\item Por defecto, los directorios con los que se abrirá el buscador de archivos serán \textit{``..\textbackslash{}Program Files\textbackslash{}eAdventure''} (Windows) \textit{``/usr/bin''} (Linux) (punto 1 y 4) y\\ \textit{``..\textbackslash{}Users\textbackslash{}..\textbackslash{}Documents\textbackslash{}Mis proyectos de eAdventure''} (Windows) \textit{``/home/../Projects''} (Linux) (punto 2). Si el ejecutable de eAdventureEditor o la carpeta donde se encuentra la aventura residen en directorios diferentes, tendrá que buscarlos manualmente.
+\item Si selecciona un ejecutable distinto a eAdventureEditor le será informado \textit{El ejecutable no corresponde a eAdventureEditor}.
+\item Para ejecutar el servidor (punto 3) ha de haber seleccionado un directorio que contenga la aventura (\textit{No existe la aventura en el directorio seleccionado}).
+\item Siempre podrá abrir la aventura manualmente a través de la interacción con su sistema operativo (buscando el archivo ejecutable de la aventura o abriendo eAdventureEditor y cargándolo).
+\item En caso de que tenga que copiar los ficheros manualmente mediante USB, consulte la sección~\ref{sec:crearAventura2} para conocer más detalles sobre el directorio donde se encuentra la aventura.
+\item Probado su correcto funcionamiento en los sistemas operativos \textit{Windows 7} y \textit{Ubuntu 14.04}
+\end{itemize}
+ 
+\section{Enviar Ficheros}
+\label{sec:enviarFicheros2}
+Una vez preparado el servidor~\ref{sec:prepararServidor} introduzca la dirección IP que le aparece y presione en \textbf{Enviar}. Puede observar cómo van llegando los ficheros en el servidor (se mostraran sus nombres). Cualquier error durante el envío le será informado, ya sea desde el servidor o desde la aplicación \textit{Error al conectar con el servidor}, \textit{Error al transferir el fichero}, etc.
+
+ \begin{figure}[H]
+ 	\centering
+    \includegraphics[width=0.8\textwidth, keepaspectratio]{img/MU_EnviarFicheros}
+    \caption{Enviar ficheros.}
+ \end{figure}
+
+
+%%%%%%%%%%%%%%%%
+% BIBLIOGRAFIA %
+%%%%%%%%%%%%%%%%
+\cleardoublepage
+
+\begin{thebibliography}{25}
+\bibliographystyle{alpha}
+
+\bibitem{AventuraConversacional} Aventura conversacional. \\
+{\footnotesize \url{http://es.wikipedia.org/wiki/Aventura_conversacional}}
+
+\bibitem{AventuraGrafica} Aventura gráfica. \\
+{\footnotesize \url{http://es.wikipedia.org/wiki/Aventura_grafica}}
+
+\bibitem{AprendizajeElectronico} Aprendizaje electrónico. \\
+{\footnotesize \url{http://es.wikipedia.org/wiki/Aprendizaje_electronico}}
+
+\bibitem{eAdventure} eAdventure. \\
+{\footnotesize \url{http://e-adventure.e-ucm.es/}}
+
+\bibitem{Java} ¿Qué es Java? \\
+{\footnotesize \url{http://es.wikipedia.org/wiki/Java_(lenguaje_de_programacion)}}
+
+\bibitem{AndroidAPIVsJavaAPI} Comparación entre la API de Android y Java. \\
+{\footnotesize \url{http://en.wikipedia.org/wiki/Comparison_of_Java_and_Android_API}}
+
+\bibitem{Android} ¿Qué es Android? \\
+{\footnotesize \url{http://es.wikipedia.org/wiki/Android}} \\
+{\footnotesize \url{http://www.xatakandroid.com/sistema-operativo/que-es-android}}
+
+\bibitem{DesarrolloIterativo} Desarrollo iterativo. \\
+{\footnotesize \url{http://es.wikipedia.org/wiki/Desarrollo_iterativo_y_creciente}}
+
+\bibitem{Canvas} ¿Qué es Canvas? \\
+{\footnotesize \url{http://en.wikipedia.org/wiki/Canvas_(GUI)}}
+
+\bibitem{CanvasAndSurfaceView} Draw with a Canvas on a surfaceView \\
+{\footnotesize \url{http://developer.android.com/intl/es/guide/topics/graphics/2d-graphics.html}}
+
+\bibitem{EventosTactilesAndroid} Eventos táctiles en Android.\\
+{\footnotesize \url{http://developer.android.com/reference/android/view/MotionEvent.html}}
+
+\bibitem{Actividades} Actividades en Android.\\
+{\footnotesize \url{http://developer.android.com/guide/components/activities.html}}
+
+\bibitem{JavaSwing} ¿Qué es Java Swing?\\
+{\footnotesize \url{http://es.wikipedia.org/wiki/Swing_(biblioteca_grafica)}}
+
+
+\end{thebibliography}
+
+
+\end{document}

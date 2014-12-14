@@ -1,0 +1,342 @@
+/*
+ *  Copyright (C) 2014  Jose Ignacio Madan Frias
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * 
+*/
+package project.elearnt;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Environment;
+import android.text.Html;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
+import android.widget.AdapterView.OnItemSelectedListener;
+
+
+/**
+* This class responsible for make the principal options of the project,
+* like, name and graphic mode, when finish, if project not exists create
+* then in the directory specified by path_projects, else start activity 
+* ProjectExists to modify (recreate, change, delete or send)
+*
+* @author Jose Ignacio Madan Frias
+* @version 1.0 November 27, 2014
+* 
+*/
+
+public class Properties extends Activity {
+	
+	// Spinner
+	private Spinner spinner1;
+	private Spinner spinner2;
+	private String graphic_mode = "";
+	
+	// Directory
+	private File dir;
+	private String[] nameProjects;
+	private ArrayList<String> listProjects;
+	ArrayList<String> list = new ArrayList<String>();
+	private String nameDir = "";
+	
+	// Button
+	private Button continues;
+	
+	// Edit text
+	private EditText editText1;
+	
+	// Text view
+	private TextView textView;
+	
+	// Path
+	private String path_dir = "";
+	private String path_projects = "";
+	
+	// File
+	private File file;
+	
+
+	/**
+	 * Than itself name indicated, throw new activity
+	 * 
+	 * @param cls name of new activity to run
+	 * @param path path to project
+	 * 
+	 */
+	public void startNewActivity(Class<?> cls, String path) {
+	      Intent i = new Intent(this, cls);
+	      i.putExtra("path_dir", path);
+	      i.putExtra("nameProject", nameDir);
+	      startActivity(i);
+	}
+	
+	/**
+	 * List the projects names
+	 * 
+	 */
+	public void listProjects() {
+		// List projects
+		nameProjects = dir.list();
+		listProjects = new ArrayList<String>();
+		
+		if (nameProjects != null) {
+			for (int i = 0; i < nameProjects.length; i++) {
+				listProjects.add(nameProjects[i]);
+			}
+		}
+	}
+	
+	/**
+	 * Obtain default name project
+	 * 
+	 * @return name of the directory by default (1..N)
+	 * 
+	 */
+	public String getDefaultName() {
+		String nameDir = "1";
+		
+		int i = 1;
+		
+		while (listProjects.contains(nameDir)) {
+			i++;
+			nameDir = Integer.toString(i);
+		}
+		
+		return nameDir;
+	}
+	
+	/**
+	 * This method change the visibility of the
+	 * screen components if project name is selected
+	 * in the spinner
+	 * 
+	 */
+	public void setVisibility() {
+		if (!String.valueOf(spinner2.getSelectedItem()).equals("")) {
+			editText1.setVisibility(View.INVISIBLE);
+			textView.setVisibility(View.INVISIBLE);
+			spinner1.setVisibility(View.INVISIBLE);
+		} else {
+			editText1.setVisibility(View.VISIBLE);
+			textView.setVisibility(View.VISIBLE);
+			spinner1.setVisibility(View.VISIBLE);
+		}
+	}
+	
+	
+	/**
+	 * Create the basic configuration on the screen,
+	 * with one button for continue, spinners and
+	 * edit text to get the principal properties of
+	 * the project
+	 * 
+	 * @param savedInstanceState for save values of the activity
+	 * 
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.properties);
+		
+		// Buttons
+		continues = (Button)findViewById(R.id.button1);
+		
+		// Spinner
+		spinner1 = (Spinner) findViewById(R.id.spinner1);
+		
+		// Edit text
+		editText1 = (EditText) findViewById(R.id.editText2);
+		
+		// Text view
+		textView = (TextView) findViewById(R.id.textView2);
+		
+		// Path
+		String[] sdcardExtNames = new String[] {"ext_card", "external_sd", "extsd"};
+		
+		int n = 0;
+		
+		do {
+			path_projects = "/mnt/" + sdcardExtNames[n] + "/Projects";
+			dir = new File (path_projects);
+			n++;
+		} while ((n < sdcardExtNames.length) && (!dir.exists()));
+		
+		if (!dir.exists()) {
+			path_projects = Environment.getExternalStorageDirectory() + "/Projects";
+			dir = new File (path_projects);
+			dir.mkdirs();
+		}
+		
+		String msg = "<font color='white'>Aventuras guardadas en " + path_projects + "</font>";
+		Toast.makeText(getApplicationContext(), Html.fromHtml(msg), Toast.LENGTH_LONG).show();
+		
+		// Spinner
+		spinner2 = (Spinner) findViewById(R.id.spinner2);
+		
+		// List projects
+		listProjects();
+		
+		// Add element to list
+		list = (ArrayList<String>) listProjects.clone();
+        list.add(0, "");
+         
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>
+                     (this, android.R.layout.simple_spinner_item, list);
+                      
+        dataAdapter.setDropDownViewResource
+                     (android.R.layout.simple_spinner_dropdown_item);
+                      
+        spinner2.setAdapter(dataAdapter);
+        
+		spinner2.setOnItemSelectedListener(new OnItemSelectedListener() {
+		    @Override
+		    public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+		    	setVisibility();
+		    }
+
+		    @Override
+		    public void onNothingSelected(AdapterView<?> parentView) {}
+		});
+		
+        // Continue
+  		continues.setOnClickListener(new View.OnClickListener() {
+  			@Override
+  			public void onClick(View view) {
+  				
+  				// List projects
+  				listProjects();
+  					
+				// Value of spinner
+  				nameDir = String.valueOf(spinner2.getSelectedItem());
+  				
+  				if (nameDir.equals("")) {
+					// Value of editText
+  					nameDir = editText1.getText().toString();
+  				}
+  				
+  				if (!listProjects.contains(nameDir)) {
+  					
+  					if (nameDir.equals("")) {
+  	  					// Default name (1..N)
+  	  					nameDir = getDefaultName();
+  	  					String msg = "<font color='white'>Nombre de la aventura por defecto: " + nameDir + "</font>";
+  	  					Toast.makeText(getApplicationContext(), Html.fromHtml(msg), Toast.LENGTH_LONG).show();
+  					}
+  					
+  					// Value of spinner
+  					if (String.valueOf(spinner1.getSelectedItem()).equals("Ventana")) {
+  						graphic_mode = "windowed";
+  					} else if (String.valueOf(spinner1.getSelectedItem()).equals("Ventana fondo en negro")) {
+  						graphic_mode = "blackbkg";
+  					} else {
+  						graphic_mode = "fullscreen";
+  					}
+  					
+  					// Make directory
+  		        	path_dir = path_projects + "/" + nameDir;
+  	  				file = new File(path_dir);
+  	  				file.mkdirs();
+  					
+  					// Initial list scenes
+  					ListScene.initialListScenes();
+  					
+  					// Create descriptor.xml
+  					FileWriter fileW = null;
+  			        PrintWriter pw = null;
+  			        
+  			        try {
+  			            fileW = new FileWriter(new File(path_dir, "descriptor.xml"));
+  			            pw = new PrintWriter(fileW);
+  			 
+  			            pw.println("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>");
+  			            pw.println("<!DOCTYPE game-descriptor SYSTEM \"descriptor.dtd\">");
+  			            pw.println("<game-descriptor versionNumber=\"25\">");
+  			            pw.println("\t<title>" + nameDir + "</title>");
+  			            pw.println("\t<description/>");
+  			            pw.println("\t<configuration defaultClickAction=\"showDetails\" dragBehaviour=\"considerNonTargets\" keepShowing=\"no\" keyboard-navigation=\"disabled\" perspective=\"regular\">");
+  			            pw.println("\t\t<gui inventoryPosition=\"none\" type=\"contextual\"/>");
+  			            pw.println("\t\t<mode playerTransparent=\"yes\"/>");
+  			            pw.println("\t\t<graphics mode=\"" + graphic_mode + "\"/>");
+  			            pw.println("\t</configuration>");
+  			            pw.println("\t<contents>");
+  			            pw.println("\t\t<chapter path=\"chapter1.xml\">");
+  			            pw.println("\t\t\t<title>Capitulo 1</title>");
+  			            pw.println("\t\t\t<description/>");
+  			            pw.println("\t\t</chapter>");
+  			            pw.println("\t</contents>");
+  			            pw.println("</game-descriptor>");
+  			 
+  			        } catch (Exception e) {
+  			            e.printStackTrace();
+  			            
+  			        } finally {
+  			        	try {
+  			        		// Close file
+  			        		if (null != fileW) {
+  			        			fileW.close();
+  			        			startNewActivity(Scenes.class, path_dir);
+  			        		}
+  			        		
+  			        	} catch (Exception e2) {}
+  			        }  
+  	  				
+  				} else {
+  					startNewActivity (ProjectExists.class, path_projects);
+  				}
+  			}
+  		});
+	}
+	
+	/**
+	 * Update spinner
+	 * 
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	protected void onRestart() {
+		super.onRestart();
+		
+		list.clear();
+		
+        // List projects
+		listProjects();
+		
+		// Add element to list
+		list = (ArrayList<String>) listProjects.clone();
+        list.add(0, "");
+        
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>
+                     (this, android.R.layout.simple_spinner_item, list);
+                      
+        dataAdapter.setDropDownViewResource
+                     (android.R.layout.simple_spinner_dropdown_item);
+                      
+        spinner2.setAdapter(dataAdapter);
+	}
+	
+}

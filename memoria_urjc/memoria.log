@@ -1,0 +1,949 @@
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.11.6)  14 DEC 2014 18:29
+entering extended mode
+**memoria.tex
+(C:\Users\FLeKyS\Downloads\memoria_urjc\memoria_urjc\memoria.tex
+LaTeX2e <2011/06/27>
+Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
+abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
+croatian, czech, danish, dutch, esperanto, estonian, farsi, finnish, french, ga
+lician, german, german-x-2013-05-26, greek, gujarati, hindi, hungarian, iceland
+ic, indonesian, interlingua, irish, italian, kannada, kurmanji, latin, latvian,
+ lithuanian, malayalam, marathi, mongolian, mongolianlmc, monogreek, ngerman, n
+german-x-2013-05-26, nynorsk, oriya, panjabi, pinyin, polish, portuguese, roman
+ian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swissgerm
+an, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, usengl
+ishmax, welsh, loaded.
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\book.cls"
+Document Class: book 2007/10/19 v1.4h Standard LaTeX document class
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\bk12.clo"
+File: bk12.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@chapter=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.sty"
+Package: geometry 2010/09/12 v5.6 Page Geometry
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.sty"
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifvtex.sty"
+Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\ifxetex\ifxetex.sty"
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+\Gm@cnth=\count88
+\Gm@cntv=\count89
+\c@Gm@tempcnt=\count90
+\Gm@bindingoffset=\dimen103
+\Gm@wd@mp=\dimen104
+\Gm@odd@mp=\dimen105
+\Gm@even@mp=\dimen106
+\Gm@layoutwidth=\dimen107
+\Gm@layoutheight=\dimen108
+\Gm@layouthoffset=\dimen109
+\Gm@layoutvoffset=\dimen110
+\Gm@dimlist=\toks15
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.cfg"))
+("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\times.sty"
+Package: times 2005/04/12 PSNFSS-v9.2a (SPQR) 
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\inputenc.sty"
+Package: inputenc 2008/03/30 v1.1d Input encoding file
+\inpenc@prehook=\toks16
+\inpenc@posthook=\toks17
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\latin1.def"
+File: latin1.def 2008/03/30 v1.1d Input encoding file
+))
+("C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.sty"
+Package: babel 2008/07/08 v3.8m The Babel package
+
+*************************************
+* Local config file bblopts.cfg used
+*
+("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\bblopts.cfg"
+File: bblopts.cfg 2006/07/31 v1.0 MiKTeX 'babel' configuration
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\babel\spanish.ldf"
+Language: spanish.ldf 2009/01/02 v5.0h Spanish support from the babel system
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.def"
+File: babel.def 2008/07/08 v3.8m Babel common definitions
+\babel@savecnt=\count91
+\U@D=\dimen111
+)
+\es@datefmt=\count92
+\es@quottoks=\toks18
+\es@quotdepth=\count93
+Package babel Info: Making " an active character on input line 492.
+Package babel Info: Making . an active character on input line 585.
+Package babel Info: Making < an active character on input line 630.
+Package babel Info: Making > an active character on input line 630.
+))
+("C:\Program Files\MiKTeX 2.9\tex\latex\url\url.sty"
+\Urlmuskip=\muskip10
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
+File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count94
+))
+\Gin@req@height=\dimen112
+\Gin@req@width=\dimen113
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\float\float.sty"
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count95
+\float@exts=\toks19
+\float@box=\box26
+\@float@everytoks=\toks20
+\@floatcapt=\box27
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\tocbibind\tocbibind.sty"
+Package: tocbibind 2010/10/13 v1.5k extra ToC listings
+Package tocbibind Info: The document has chapter divisions on input line 50.
+
+
+Package tocbibind Note: Using chapter style headings, unless overridden.
+
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\base\latexsym.sty"
+Package: latexsym 1998/08/17 v2.2e Standard LaTeX package (lasy symbols)
+\symlasy=\mathgroup4
+LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
+(Font)                  U/lasy/m/n --> U/lasy/b/n on input line 47.
+)
+(C:\Users\FLeKyS\Downloads\memoria_urjc\memoria_urjc\memoria.aux)
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 39.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1ptm.fd"
+File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
+)
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: twoside 
+* h-part:(L,W,R)=(71.13188pt, 455.24411pt, 71.13188pt)
+* v-part:(T,H,B)=(85.35826pt, 674.33032pt, 85.35826pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=455.24411pt
+* \textheight=674.33032pt
+* \oddsidemargin=-1.1381pt
+* \evensidemargin=-1.1381pt
+* \topmargin=-18.78552pt
+* \headheight=12.0pt
+* \headsep=19.8738pt
+* \topskip=12.0pt
+* \footskip=30.0pt
+* \marginparwidth=88.0pt
+* \marginparsep=7.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidetrue
+* \@mparswitchtrue
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count96
+\scratchdimen=\dimen114
+\scratchbox=\box28
+\nofMPsegments=\count97
+\nofMParguments=\count98
+\everyMPshowfont=\toks21
+\MPscratchCnt=\count99
+\MPscratchDim=\dimen115
+\MPnumerator=\count100
+\makeMPintoPDFobject=\count101
+\everyMPtoPDFconversion=\toks22
+)
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 51.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 51.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 51.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 51.
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\base\ulasy.fd"
+File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
+)
+<img/logo_vect.png, id=1, 169.8345pt x 338.2236pt>
+File: img/logo_vect.png Graphic file (type png)
+ <use img/logo_vect.png>
+Package pdftex.def Info: img/logo_vect.png used on input line 53.
+(pdftex.def)             Requested size: 42.45851pt x 84.5557pt.
+LaTeX Font Info:    Try loading font information for OT1+phv on input line 56.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1phv.fd"
+File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
+) [1
+
+
+{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map} <C:/Users/FLeKyS/Downloads
+/memoria_urjc/memoria_urjc/img/logo_vect.png>] [2]
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <24.88> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 102.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 119.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 119.
+ <img/bySa.png, id=11, 97.0827pt x 33.9669pt>
+File: img/bySa.png Graphic file (type png)
+
+<use img/bySa.png>
+Package pdftex.def Info: img/bySa.png used on input line 119.
+(pdftex.def)             Requested size: 77.66624pt x 27.17354pt.
+ [1
+
+ <C:/Users/FLeKyS/Downloads/memoria_urjc/memoria_urjc/img/bySa.png>] [2
+
+] [3] [4
+
+] [5] [6
+
+] [7] [8
+
+]
+(C:\Users\FLeKyS\Downloads\memoria_urjc\memoria_urjc\memoria.toc
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 2.
+ [9] [10])
+\tf@toc=\write3
+
+[11] [12
+
+] (C:\Users\FLeKyS\Downloads\memoria_urjc\memoria_urjc\memoria.lof
+[13
+
+] [14])
+\tf@lof=\write4
+ [15] [16
+
+]
+Cap\'{\i }tulo 1.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <17.28> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 211.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [1]
+[2]
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 277.
+
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1pcr.fd"
+File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
+) [3]
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 290.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <12> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 312.
+ [4]
+<img/AndroidSystemArchitecture.png, id=82, 909.3975pt x 737.75626pt>
+File: img/AndroidSystemArchitecture.png Graphic file (type png)
+
+<use img/AndroidSystemArchitecture.png>
+Package pdftex.def Info: img/AndroidSystemArchitecture.png used on input line 3
+27.
+(pdftex.def)             Requested size: 363.75256pt x 295.09727pt.
+ [5 <C:/Users/FLeKyS/Downloads/memoria_urjc/memoria_urjc/img/AndroidSystemArchi
+tecture.png>]
+<img/eAdventureEngine.png, id=87, 1011.78pt x 604.05675pt>
+File: img/eAdventureEngine.png Graphic file (type png)
+
+<use img/eAdventureEngine.png>
+Package pdftex.def Info: img/eAdventureEngine.png used on input line 338.
+(pdftex.def)             Requested size: 404.70483pt x 241.61842pt.
+
+<img/eAdventureEditor.png, id=88, 1010.5755pt x 604.05675pt>
+File: img/eAdventureEditor.png Graphic file (type png)
+
+<use img/eAdventureEditor.png>
+Package pdftex.def Info: img/eAdventureEditor.png used on input line 344.
+(pdftex.def)             Requested size: 404.22304pt x 241.61842pt.
+ [6 <C:/Users/FLeKyS/Downloads/memoria_urjc/memoria_urjc/img/eAdventureEngine.p
+ng> <C:/Users/FLeKyS/Downloads/memoria_urjc/memoria_urjc/img/eAdventureEditor.p
+ng>]
+<img/eclipseIDE.png, id=92, 1011.78pt x 602.85225pt>
+File: img/eclipseIDE.png Graphic file (type png)
+ <use img/eclipseIDE.png>
+Package pdftex.def Info: img/eclipseIDE.png used on input line 376.
+(pdftex.def)             Requested size: 455.2968pt x 271.281pt.
+
+Underfull \vbox (badness 1789) has occurred while \output is active []
+
+ [7]
+[8 <C:/Users/FLeKyS/Downloads/memoria_urjc/memoria_urjc/img/eclipseIDE.png>]
+[9] [10
+
+]
+Cap\'{\i }tulo 2.
+[11]
+Underfull \hbox (badness 10000) in paragraph at lines 451--451
+
+ []
+
+[12] [13] [14] [15] [16]
+Cap\'{\i }tulo 3.
+<img/Elearnt.png, id=128, 1138.2525pt x 889.3225pt>
+File: img/Elearnt.png Graphic file (type png)
+ <use img/Elearnt.png>
+Package pdftex.def Info: img/Elearnt.png used on input line 591.
+(pdftex.def)             Requested size: 455.29294pt x 355.72269pt.
+
+[17
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 609--610
+
+ []
+
+<img/DiagramaCasosUso.png, id=132, 1062.97125pt x 627.34375pt>
+File: img/DiagramaCasosUso.png Graphic file (type png)
+
+<use img/DiagramaCasosUso.png>
+Package pdftex.def Info: img/DiagramaCasosUso.png used on input line 617.
+(pdftex.def)             Requested size: 425.18097pt x 250.93304pt.
+ [18 <C:/Users/FLeKyS/Downloads/memoria_urjc/memoria_urjc/img/Elearnt.png>] [19
+ <C:/Users/FLeKyS/Downloads/memoria_urjc/memoria_urjc/img/DiagramaCasosUso.png>
+]
+<img/CrearAventura.png, id=142, 1164.35pt x 1112.155pt>
+File: img/CrearAventura.png Graphic file (type png)
+
+<use img/CrearAventura.png>
+Package pdftex.def Info: img/CrearAventura.png used on input line 639.
+(pdftex.def)             Requested size: 465.73175pt x 444.85413pt.
+
+Overfull \hbox (10.48764pt too wide) in paragraph at lines 639--640
+ [][] 
+ []
+
+<img/CrearAventuraDeNuevo.png, id=143, 1148.29pt x 778.91pt>
+File: img/CrearAventuraDeNuevo.png Graphic file (type png)
+
+<use img/CrearAventuraDeNuevo.png>
+Package pdftex.def Info: img/CrearAventuraDeNuevo.png used on input line 651.
+(pdftex.def)             Requested size: 459.30786pt x 311.55849pt.
+
+Overfull \hbox (4.06375pt too wide) in paragraph at lines 651--652
+ [][] 
+ []
+
+[20 <C:/Users/FLeKyS/Downloads/memoria_urjc/memoria_urjc/img/CrearAventura.png>
+] <img/ModificarAventura.png, id=148, 1156.32pt x 999.735pt>
+File: img/ModificarAventura.png Graphic file (type png)
+
+<use img/ModificarAventura.png>
+Package pdftex.def Info: img/ModificarAventura.png used on input line 662.
+(pdftex.def)             Requested size: 462.5198pt x 399.88692pt.
+
+Overfull \hbox (7.2757pt too wide) in paragraph at lines 662--663
+ [][] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [21 <C:/Users/FLeKyS/Downloads/memoria_urjc/memoria_urjc/img/CrearAventuraDeNu
+evo.png>]
+<img/EliminarAventura.png, id=153, 1132.23pt x 525.965pt>
+File: img/EliminarAventura.png Graphic file (type png)
+
+<use img/EliminarAventura.png>
+Package pdftex.def Info: img/EliminarAventura.png used on input line 672.
+(pdftex.def)             Requested size: 452.88397pt x 210.38226pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [22 <C:/Users/FLeKyS/Downloads/memoria_urjc/memoria_urjc/img/ModificarAventura
+.png>]
+<img/EnviarAventura.png, id=158, 1027.84pt x 509.905pt>
+File: img/EnviarAventura.png Graphic file (type png)
+
+<use img/EnviarAventura.png>
+Package pdftex.def Info: img/EnviarAventura.png used on input line 682.
+(pdftex.def)             Requested size: 411.12872pt x 203.95837pt.
+
+<img/FinalizarAventura.png, id=159, 1132.23pt x 1100.11pt>
+File: img/FinalizarAventura.png Graphic file (type png)
+
+<use img/FinalizarAventura.png>
+Package pdftex.def Info: img/FinalizarAventura.png used on input line 691.
+(pdftex.def)             Requested size: 452.88397pt x 440.03621pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [23 <C:/Users/FLeKyS/Downloads/memoria_urjc/memoria_urjc/img/EliminarAventura.
+png> <C:/Users/FLeKyS/Downloads/memoria_urjc/memoria_urjc/img/EnviarAventura.pn
+g>]
+[24 <C:/Users/FLeKyS/Downloads/memoria_urjc/memoria_urjc/img/FinalizarAventura.
+png>] <img/ObtenerEscena.png, id=169, 1132.23pt x 1080.035pt>
+File: img/ObtenerEscena.png Graphic file (type png)
+
+<use img/ObtenerEscena.png>
+Package pdftex.def Info: img/ObtenerEscena.png used on input line 707.
+(pdftex.def)             Requested size: 452.88397pt x 432.00635pt.
+
+<img/ModificarEscena.png, id=170, 1132.23pt x 1268.74pt>
+File: img/ModificarEscena.png Graphic file (type png)
+
+<use img/ModificarEscena.png>
+Package pdftex.def Info: img/ModificarEscena.png used on input line 717.
+(pdftex.def)             Requested size: 452.88397pt x 507.48701pt.
+ [25 <C:/Users/FLeKyS/Downloads/memoria_urjc/memoria_urjc/img/ObtenerEscena.png
+>]
+<img/EliminarEscena.png, id=176, 1132.23pt x 847.165pt>
+File: img/EliminarEscena.png Graphic file (type png)
+
+<use img/EliminarEscena.png>
+Package pdftex.def Info: img/EliminarEscena.png used on input line 727.
+(pdftex.def)             Requested size: 364.19667pt x 272.49442pt.
+ [26 <C:/Users/FLeKyS/Downloads/memoria_urjc/memoria_urjc/img/ModificarEscena.p
+ng>]
+<img/SeleccionarEscenaGaleria.png, id=181, 1132.23pt x 638.385pt>
+File: img/SeleccionarEscenaGaleria.png Graphic file (type png)
+
+<use img/SeleccionarEscenaGaleria.png>
+Package pdftex.def Info: img/SeleccionarEscenaGaleria.png used on input line 73
+7.
+(pdftex.def)             Requested size: 364.19667pt x 205.33939pt.
+ [27 <C:/Users/FLeKyS/Downloads/memoria_urjc/memoria_urjc/img/EliminarEscena.pn
+g> <C:/Users/FLeKyS/Downloads/memoria_urjc/memoria_urjc/img/SeleccionarEscenaGa
+leria.png>]
+<img/SeleccionarAreaSalida.png, id=187, 1132.23pt x 782.925pt>
+File: img/SeleccionarAreaSalida.png Graphic file (type png)
+
+<use img/SeleccionarAreaSalida.png>
+Package pdftex.def Info: img/SeleccionarAreaSalida.png used on input line 746.
+(pdftex.def)             Requested size: 452.88397pt x 313.16446pt.
+
+<img/CrearSalida.png, id=188, 1132.23pt x 1140.26pt>
+File: img/CrearSalida.png Graphic file (type png)
+ <use img/CrearSalida.png>
+Package pdftex.def Info: img/CrearSalida.png used on input line 756.
+(pdftex.def)             Requested size: 452.88397pt x 456.09592pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [28 <C:/Users/FLeKyS/Downloads/memoria_urjc/memoria_urjc/img/SeleccionarAreaSa
+lida.png>]
+<img/CorregirEnlaces.png, id=193, 1132.23pt x 855.195pt>
+File: img/CorregirEnlaces.png Graphic file (type png)
+
+<use img/CorregirEnlaces.png>
+Package pdftex.def Info: img/CorregirEnlaces.png used on input line 766.
+(pdftex.def)             Requested size: 452.88397pt x 342.07195pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [29 <C:/Users/FLeKyS/Downloads/memoria_urjc/memoria_urjc/img/CrearSalida.png>]
+
+<img/EnviarFicheros.png, id=198, 1300.86pt x 798.985pt>
+File: img/EnviarFicheros.png Graphic file (type png)
+
+<use img/EnviarFicheros.png>
+Package pdftex.def Info: img/EnviarFicheros.png used on input line 775.
+(pdftex.def)             Requested size: 520.3348pt x 319.58833pt.
+
+Overfull \hbox (65.09068pt too wide) in paragraph at lines 775--776
+ [][] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [30 <C:/Users/FLeKyS/Downloads/memoria_urjc/memoria_urjc/img/CorregirEnlaces.p
+ng>]
+[31 <C:/Users/FLeKyS/Downloads/memoria_urjc/memoria_urjc/img/EnviarFicheros.png
+>] [32]
+Cap\'{\i }tulo 4.
+[33
+
+] <img/EstructuraDeDatos.png, id=214, 1119.18124pt x 744.7825pt>
+File: img/EstructuraDeDatos.png Graphic file (type png)
+
+<use img/EstructuraDeDatos.png>
+Package pdftex.def Info: img/EstructuraDeDatos.png used on input line 830.
+(pdftex.def)             Requested size: 432.48051pt x 287.80472pt.
+ [34 <C:/Users/FLeKyS/Downloads/memoria_urjc/memoria_urjc/img/EstructuraDeDatos
+.png>]
+<img/surfaceView.png, id=219, 231.264pt x 141.6492pt>
+File: img/surfaceView.png Graphic file (type png)
+
+<use img/surfaceView.png>
+Package pdftex.def Info: img/surfaceView.png used on input line 855.
+(pdftex.def)             Requested size: 364.19667pt x 223.08134pt.
+ [35 <C:/Users/FLeKyS/Downloads/memoria_urjc/memoria_urjc/img/surfaceView.png>]
+
+<img/CicloVidaActividades.png, id=224, 392.667pt x 491.436pt>
+File: img/CicloVidaActividades.png Graphic file (type png)
+
+<use img/CicloVidaActividades.png>
+Package pdftex.def Info: img/CicloVidaActividades.png used on input line 889.
+(pdftex.def)             Requested size: 318.66948pt x 398.83334pt.
+ [36] [37 <C:/Users/FLeKyS/Downloads/memoria_urjc/memoria_urjc/img/CicloVidaAct
+ividades.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 901--902
+
+ []
+
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 908.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\omsptm.fd"
+File: omsptm.fd 
+)
+LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 908.
+
+Underfull \hbox (badness 10000) in paragraph at lines 914--916
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 919--920
+
+ []
+
+[38]
+Underfull \hbox (badness 10000) in paragraph at lines 937--938
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 950--951
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 969--970
+
+ []
+
+[39]
+Underfull \hbox (badness 10000) in paragraph at lines 971--972
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 986--987
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 990--991
+
+ []
+
+[40]
+Underfull \hbox (badness 10000) in paragraph at lines 1001--1003
+
+ []
+
+[41] <img/descriptorXML.png, id=245, 402.90524pt x 259.56975pt>
+File: img/descriptorXML.png Graphic file (type png)
+
+<use img/descriptorXML.png>
+Package pdftex.def Info: img/descriptorXML.png used on input line 1042.
+(pdftex.def)             Requested size: 364.19667pt x 234.64832pt.
+
+<img/projectXML.png, id=246, 398.6895pt x 308.352pt>
+File: img/projectXML.png Graphic file (type png)
+ <use img/projectXML.png>
+Package pdftex.def Info: img/projectXML.png used on input line 1057.
+(pdftex.def)             Requested size: 364.19667pt x 281.67351pt.
+
+[42 <C:/Users/FLeKyS/Downloads/memoria_urjc/memoria_urjc/img/descriptorXML.png>
+] <img/cuadroEdicionEadventureEditor.png, id=250, 563.706pt x 423.38174pt>
+File: img/cuadroEdicionEadventureEditor.png Graphic file (type png)
+
+<use img/cuadroEdicionEadventureEditor.png>
+Package pdftex.def Info: img/cuadroEdicionEadventureEditor.png used on input li
+ne 1065.
+(pdftex.def)             Requested size: 295.90588pt x 222.24644pt.
+
+<img/chapter1XML.png, id=251, 449.88075pt x 489.62926pt>
+File: img/chapter1XML.png Graphic file (type png)
+
+<use img/chapter1XML.png>
+Package pdftex.def Info: img/chapter1XML.png used on input line 1071.
+(pdftex.def)             Requested size: 364.19667pt x 396.37338pt.
+ [43 <C:/Users/FLeKyS/Downloads/memoria_urjc/memoria_urjc/img/projectXML.png> <
+C:/Users/FLeKyS/Downloads/memoria_urjc/memoria_urjc/img/cuadroEdicionEadventure
+Editor.png>] [44 <C:/Users/FLeKyS/Downloads/memoria_urjc/memoria_urjc/img/chapt
+er1XML.png>]
+<img/Java_Swing.png, id=259, 647.41875pt x 328.8285pt>
+File: img/Java_Swing.png Graphic file (type png)
+
+<use img/Java_Swing.png>
+Package pdftex.def Info: img/Java_Swing.png used on input line 1098.
+(pdftex.def)             Requested size: 364.19667pt x 184.98062pt.
+ [45 <C:/Users/FLeKyS/Downloads/memoria_urjc/memoria_urjc/img/Java_Swing.png>]
+<img/ResolucionesAndroid.png, id=263, 697.4055pt x 308.95425pt>
+File: img/ResolucionesAndroid.png Graphic file (type png)
+
+<use img/ResolucionesAndroid.png>
+Package pdftex.def Info: img/ResolucionesAndroid.png used on input line 1108.
+(pdftex.def)             Requested size: 409.71692pt x 181.513pt.
+
+<img/CarpetasResoluciones.png, id=264, 1008.76875pt x 534.19576pt>
+File: img/CarpetasResoluciones.png Graphic file (type png)
+
+<use img/CarpetasResoluciones.png>
+Package pdftex.def Info: img/CarpetasResoluciones.png used on input line 1116.
+(pdftex.def)             Requested size: 432.48051pt x 229.02315pt.
+ [46 <C:/Users/FLeKyS/Downloads/memoria_urjc/memoria_urjc/img/ResolucionesAndro
+id.png> <C:/Users/FLeKyS/Downloads/memoria_urjc/memoria_urjc/img/CarpetasResolu
+ciones.png>] [47] [48
+
+]
+Cap\'{\i }tulo 5.
+[49] [50
+
+]
+Cap\'{\i }tulo 6.
+[51] [52]
+Ap\'endice A.
+
+Overfull \hbox (5.31548pt too wide) in paragraph at lines 1185--1187
+$\OT1/pcr/m/n/12 google . com / store / apps / details ? id = com . jrummy . ro
+ot . browserfree$ \OT1/ptm/m/n/12 (si no
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1191--1193
+
+ []
+
+[53
+
+
+]
+Overfull \hbox (17.72536pt too wide) in paragraph at lines 1215--1217
+\OT1/ptm/m/n/12 con ver-si[]on \OT1/ptm/m/it/12 1.5-Release Can-di-da-te 4 $\OT
+1/pcr/m/n/12 http : / / e-[]adventure . e-[]ucm . es / download/$ 
+ []
+
+[54]
+Ap\'endice B.
+<img/MU_Main.png, id=293, 1011.78pt x 632.3625pt>
+File: img/MU_Main.png Graphic file (type png)
+ <use img/MU_Main.png>
+Package pdftex.def Info: img/MU_Main.png used on input line 1228.
+(pdftex.def)             Requested size: 364.19667pt x 227.62138pt.
+
+<img/MU_CrearAventura.png, id=294, 1011.17775pt x 564.30824pt>
+File: img/MU_CrearAventura.png Graphic file (type png)
+
+<use img/MU_CrearAventura.png>
+Package pdftex.def Info: img/MU_CrearAventura.png used on input line 1238.
+(pdftex.def)             Requested size: 364.19667pt x 203.24551pt.
+ [55
+
+ <C:/Users/FLeKyS/Downloads/memoria_urjc/memoria_urjc/img/MU_Main.png>]
+<img/MU_CrearAventuraExistente.png, id=299, 1011.78pt x 573.94424pt>
+File: img/MU_CrearAventuraExistente.png Graphic file (type png)
+
+<use img/MU_CrearAventuraExistente.png>
+Package pdftex.def Info: img/MU_CrearAventuraExistente.png used on input line 1
+256.
+(pdftex.def)             Requested size: 364.19667pt x 206.59349pt.
+ [56 <C:/Users/FLeKyS/Downloads/memoria_urjc/memoria_urjc/img/MU_CrearAventura.
+png>]
+<img/MU_CrearAventuraDeNuevo.png, id=303, 1011.17775pt x 564.30824pt>
+File: img/MU_CrearAventuraDeNuevo.png Graphic file (type png)
+
+<use img/MU_CrearAventuraDeNuevo.png>
+Package pdftex.def Info: img/MU_CrearAventuraDeNuevo.png used on input line 126
+5.
+(pdftex.def)             Requested size: 364.19667pt x 203.24551pt.
+ [57 <C:/Users/FLeKyS/Downloads/memoria_urjc/memoria_urjc/img/MU_CrearAventuraE
+xistente.png> <C:/Users/FLeKyS/Downloads/memoria_urjc/memoria_urjc/img/MU_Crear
+AventuraDeNuevo.png>]
+<img/MU_ModificarAventura.png, id=307, 1011.17775pt x 569.12625pt>
+File: img/MU_ModificarAventura.png Graphic file (type png)
+
+<use img/MU_ModificarAventura.png>
+Package pdftex.def Info: img/MU_ModificarAventura.png used on input line 1281.
+(pdftex.def)             Requested size: 364.19667pt x 204.98082pt.
+
+<img/MU_EliminarAventura.png, id=308, 1011.17775pt x 565.51276pt>
+File: img/MU_EliminarAventura.png Graphic file (type png)
+
+<use img/MU_EliminarAventura.png>
+Package pdftex.def Info: img/MU_EliminarAventura.png used on input line 1291.
+(pdftex.def)             Requested size: 364.19667pt x 203.67935pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [58 <C:/Users/FLeKyS/Downloads/memoria_urjc/memoria_urjc/img/MU_ModificarAvent
+ura.png>]
+<img/MU_EnviarAventura.png, id=312, 1011.17775pt x 560.69475pt>
+File: img/MU_EnviarAventura.png Graphic file (type png)
+
+<use img/MU_EnviarAventura.png>
+Package pdftex.def Info: img/MU_EnviarAventura.png used on input line 1300.
+(pdftex.def)             Requested size: 364.19667pt x 201.94406pt.
+
+<img/MU_ObtenerEscena.png, id=313, 1011.78pt x 571.53525pt>
+File: img/MU_ObtenerEscena.png Graphic file (type png)
+
+<use img/MU_ObtenerEscena.png>
+Package pdftex.def Info: img/MU_ObtenerEscena.png used on input line 1311.
+(pdftex.def)             Requested size: 364.19667pt x 205.72636pt.
+
+Underfull \vbox (badness 5563) has occurred while \output is active []
+
+ [59 <C:/Users/FLeKyS/Downloads/memoria_urjc/memoria_urjc/img/MU_EliminarAventu
+ra.png> <C:/Users/FLeKyS/Downloads/memoria_urjc/memoria_urjc/img/MU_EnviarAvent
+ura.png>]
+<img/MU_HacerFotografia.png, id=317, 1011.78pt x 591.4095pt>
+File: img/MU_HacerFotografia.png Graphic file (type png)
+
+<use img/MU_HacerFotografia.png>
+Package pdftex.def Info: img/MU_HacerFotografia.png used on input line 1320.
+(pdftex.def)             Requested size: 364.19667pt x 212.88017pt.
+
+<img/MU_SeleccionarImagen.png, id=318, 1011.78pt x 571.53525pt>
+File: img/MU_SeleccionarImagen.png Graphic file (type png)
+
+<use img/MU_SeleccionarImagen.png>
+Package pdftex.def Info: img/MU_SeleccionarImagen.png used on input line 1327.
+(pdftex.def)             Requested size: 364.19667pt x 205.72636pt.
+ [60 <C:/Users/FLeKyS/Downloads/memoria_urjc/memoria_urjc/img/MU_ObtenerEscena.
+png> <C:/Users/FLeKyS/Downloads/memoria_urjc/memoria_urjc/img/MU_HacerFotografi
+a.png>]
+<img/MU_ModificarEscena.png, id=322, 1011.78pt x 572.73975pt>
+File: img/MU_ModificarEscena.png Graphic file (type png)
+
+<use img/MU_ModificarEscena.png>
+Package pdftex.def Info: img/MU_ModificarEscena.png used on input line 1345.
+(pdftex.def)             Requested size: 364.19667pt x 206.15993pt.
+ [61 <C:/Users/FLeKyS/Downloads/memoria_urjc/memoria_urjc/img/MU_SeleccionarIma
+gen.png>]
+<img/MU_ModificarEscena_SinEscenas.png, id=327, 1011.78pt x 569.12625pt>
+File: img/MU_ModificarEscena_SinEscenas.png Graphic file (type png)
+
+<use img/MU_ModificarEscena_SinEscenas.png>
+Package pdftex.def Info: img/MU_ModificarEscena_SinEscenas.png used on input li
+ne 1353.
+(pdftex.def)             Requested size: 364.19667pt x 204.85924pt.
+
+<img/MU_EliminarEscena.png, id=328, 1011.78pt x 573.94424pt>
+File: img/MU_EliminarEscena.png Graphic file (type png)
+
+<use img/MU_EliminarEscena.png>
+Package pdftex.def Info: img/MU_EliminarEscena.png used on input line 1362.
+(pdftex.def)             Requested size: 364.19667pt x 206.59349pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [62 <C:/Users/FLeKyS/Downloads/memoria_urjc/memoria_urjc/img/MU_ModificarEscen
+a.png> <C:/Users/FLeKyS/Downloads/memoria_urjc/memoria_urjc/img/MU_ModificarEsc
+ena_SinEscenas.png>]
+<img/MU_EliminarEscena_SinEscenas.png, id=332, 1011.78pt x 573.94424pt>
+File: img/MU_EliminarEscena_SinEscenas.png Graphic file (type png)
+
+<use img/MU_EliminarEscena_SinEscenas.png>
+Package pdftex.def Info: img/MU_EliminarEscena_SinEscenas.png used on input lin
+e 1369.
+(pdftex.def)             Requested size: 364.19667pt x 206.59349pt.
+
+<img/MU_GaleriaEscenas.png, id=333, 1010.5755pt x 575.14874pt>
+File: img/MU_GaleriaEscenas.png Graphic file (type png)
+
+<use img/MU_GaleriaEscenas.png>
+Package pdftex.def Info: img/MU_GaleriaEscenas.png used on input line 1378.
+(pdftex.def)             Requested size: 364.19667pt x 207.27278pt.
+
+Underfull \vbox (badness 1430) has occurred while \output is active []
+
+ [63 <C:/Users/FLeKyS/Downloads/memoria_urjc/memoria_urjc/img/MU_EliminarEscena
+.png> <C:/Users/FLeKyS/Downloads/memoria_urjc/memoria_urjc/img/MU_EliminarEscen
+a_SinEscenas.png>] [64 <C:/Users/FLeKyS/Downloads/memoria_urjc/memoria_urjc/img
+/MU_GaleriaEscenas.png>]
+<img/MU_SeleccionarAreaSalida.png, id=340, 1009.97325pt x 589.60275pt>
+File: img/MU_SeleccionarAreaSalida.png Graphic file (type png)
+
+<use img/MU_SeleccionarAreaSalida.png>
+Package pdftex.def Info: img/MU_SeleccionarAreaSalida.png used on input line 13
+99.
+(pdftex.def)             Requested size: 364.19667pt x 212.6077pt.
+
+<img/MU_CrearSalida.png, id=341, 1011.78pt x 571.53525pt>
+File: img/MU_CrearSalida.png Graphic file (type png)
+
+<use img/MU_CrearSalida.png>
+Package pdftex.def Info: img/MU_CrearSalida.png used on input line 1411.
+(pdftex.def)             Requested size: 364.19667pt x 205.72636pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [65 <C:/Users/FLeKyS/Downloads/memoria_urjc/memoria_urjc/img/MU_SeleccionarAre
+aSalida.png>] <img/MU_CrearSalida_SinEscenas.png, id=345, 1011.78pt x 571.53525
+pt>
+File: img/MU_CrearSalida_SinEscenas.png Graphic file (type png)
+
+<use img/MU_CrearSalida_SinEscenas.png>
+Package pdftex.def Info: img/MU_CrearSalida_SinEscenas.png used on input line 1
+419.
+(pdftex.def)             Requested size: 364.19667pt x 205.72636pt.
+
+<img/MU_CorregirEnlaces.png, id=346, 1011.78pt x 570.33075pt>
+File: img/MU_CorregirEnlaces.png Graphic file (type png)
+
+<use img/MU_CorregirEnlaces.png>
+Package pdftex.def Info: img/MU_CorregirEnlaces.png used on input line 1429.
+(pdftex.def)             Requested size: 364.19667pt x 205.2928pt.
+ [66 <C:/Users/FLeKyS/Downloads/memoria_urjc/memoria_urjc/img/MU_CrearSalida.pn
+g> <C:/Users/FLeKyS/Downloads/memoria_urjc/memoria_urjc/img/MU_CrearSalida_SinE
+scenas.png>]
+<img/MU_CorregirEnlaces_SinEscenas.png, id=352, 1011.78pt x 575.14874pt>
+File: img/MU_CorregirEnlaces_SinEscenas.png Graphic file (type png)
+
+<use img/MU_CorregirEnlaces_SinEscenas.png>
+Package pdftex.def Info: img/MU_CorregirEnlaces_SinEscenas.png used on input li
+ne 1437.
+(pdftex.def)             Requested size: 364.19667pt x 207.02705pt.
+
+<img/MU_CorregirSalida.png, id=353, 1011.17775pt x 573.94424pt>
+File: img/MU_CorregirSalida.png Graphic file (type png)
+
+<use img/MU_CorregirSalida.png>
+Package pdftex.def Info: img/MU_CorregirSalida.png used on input line 1443.
+(pdftex.def)             Requested size: 341.43307pt x 193.79854pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [67 <C:/Users/FLeKyS/Downloads/memoria_urjc/memoria_urjc/img/MU_CorregirEnlace
+s.png> <C:/Users/FLeKyS/Downloads/memoria_urjc/memoria_urjc/img/MU_CorregirEnla
+ces_SinEscenas.png>]
+<img/MU_CorregirSalida_SinEscenas.png, id=358, 1011.17775pt x 573.94424pt>
+File: img/MU_CorregirSalida_SinEscenas.png Graphic file (type png)
+
+<use img/MU_CorregirSalida_SinEscenas.png>
+Package pdftex.def Info: img/MU_CorregirSalida_SinEscenas.png used on input lin
+e 1453.
+(pdftex.def)             Requested size: 341.43307pt x 193.79854pt.
+ [68 <C:/Users/FLeKyS/Downloads/memoria_urjc/memoria_urjc/img/MU_CorregirSalida
+.png> <C:/Users/FLeKyS/Downloads/memoria_urjc/memoria_urjc/img/MU_CorregirSalid
+a_SinEscenas.png>]
+<img/MU_Servidor.png, id=364, 488.42474pt x 440.24475pt>
+File: img/MU_Servidor.png Graphic file (type png)
+
+<use img/MU_Servidor.png>
+Package pdftex.def Info: img/MU_Servidor.png used on input line 1465.
+(pdftex.def)             Requested size: 364.19667pt x 328.28168pt.
+ [69 <C:/Users/FLeKyS/Downloads/memoria_urjc/memoria_urjc/img/MU_Servidor.png>]
+LaTeX Font Info:    Font shape `OMS/ptm/m/it' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 1473.
+
+
+Overfull \hbox (2.67116pt too wide) in paragraph at lines 1473--1474
+[]\OT1/ptm/m/n/12 Por de-fec-to, los di-rec-to-rios con los que se abrir[]a el 
+bus-ca-dor de ar-chi-vos ser[]an \OT1/ptm/m/it/12 ``..\OMS/cmsy/m/n/12 n\OT1/pt
+m/m/it/12 Program
+ []
+
+<img/MU_EnviarFicheros.png, id=368, 1011.78pt x 569.12625pt>
+File: img/MU_EnviarFicheros.png Graphic file (type png)
+
+<use img/MU_EnviarFicheros.png>
+Package pdftex.def Info: img/MU_EnviarFicheros.png used on input line 1487.
+(pdftex.def)             Requested size: 364.19667pt x 204.85924pt.
+ [70] [71 <C:/Users/FLeKyS/Downloads/memoria_urjc/memoria_urjc/img/MU_EnviarFic
+heros.png>] [72
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 1528--1530
+$\OT1/pcr/m/n/10 http : / / developer . android . com / intl / es / guide / top
+ics / graphics / 2d-[]graphics .$
+ []
+
+[73
+
+] [74] (C:\Users\FLeKyS\Downloads\memoria_urjc\memoria_urjc\memoria.aux) ) 
+Here is how much of TeX's memory you used:
+ 3116 strings out of 493921
+ 46477 string characters out of 3147279
+ 100911 words of memory out of 3000000
+ 6295 multiletter control sequences out of 15000+200000
+ 33469 words of font info for 65 fonts, out of 3000000 for 9000
+ 841 hyphenation exceptions out of 8191
+ 27i,13n,27p,907b,483s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/P
+rogram Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program Files/MiKTe
+X 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/fo
+nts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
+/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/am
+sfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/courier/ucrr8
+a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Prog
+ram Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 
+2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
+urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.
+pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
+Output written on memoria.pdf (92 pages, 9779861 bytes).
+PDF statistics:
+ 424 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 281 words of extra memory for PDF output out of 10000 (max. 10000000)
+

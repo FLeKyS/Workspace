@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<previews>
+
+    <preview
+        name="10.1&quot; WXGA (Tablet)"
+        config="layout-ldltr-sw320dp-w480dp-h320dp-normal-notlong-land-notnight-mdpi-finger-keyssoft-nokeys-navexposed-trackball-480x320-v19"
+        device="3.2&quot; QVGA (ADP2)"
+        devicestate="Portrait"
+        target="Android 4.4.2"
+        theme="@style/AppTheme" >
+    </preview>
+    <preview
+        name="7&quot; WSVGA (Tablet)"
+        config="layout-ldltr-sw600dp-w1024dp-h600dp-large-long-land-notnight-mdpi-finger-keyssoft-nokeys-navhidden-nonav-1024x600-v19"
+        device="7&quot; WSVGA (Tablet)"
+        devicestate="Portrait"
+        target="Android 4.4.2"
+        theme="@style/AppTheme" >
+    </preview>
+    <preview
+        name="4.7&apos;&apos; WXGA (Smartphone)"
+        config="layout-ldltr-sw800dp-w1280dp-h800dp-xlarge-long-land-notnight-mdpi-finger-keyssoft-nokeys-navhidden-nonav-1280x800-v21"
+        device="10.1&quot; WXGA (Tablet)"
+        devicestate="Portrait"
+        target="Android 5.0"
+        theme="@style/AppTheme" >
+    </preview>
+    <preview
+        name="5.4&apos;&apos; FWVGA (Smartphone)"
+        config="layout-ldltr-sw320dp-w480dp-h320dp-normal-notlong-land-notnight-mdpi-finger-keyssoft-nokeys-navexposed-trackball-480x320-v21"
+        device="3.2&quot; QVGA (ADP2)"
+        devicestate="Portrait"
+        target="Android 5.0"
+        theme="@style/AppTheme" >
+    </preview>
+    <preview
+        name="4.0&apos;&apos; WVGA (Smartphone)"
+        config="layout-ldltr-sw320dp-w480dp-h320dp-normal-notlong-land-notnight-mdpi-finger-keyssoft-nokeys-navexposed-trackball-480x320-v21"
+        device="3.2&quot; QVGA (ADP2)"
+        devicestate="Portrait"
+        target="Android 5.0"
+        theme="@style/AppTheme" >
+    </preview>
+    <preview
+        name="3.4&apos;&apos; WQVGA (Smartphone)"
+        config="layout-ldltr-sw320dp-w480dp-h320dp-normal-notlong-land-notnight-mdpi-finger-keyssoft-nokeys-navexposed-trackball-480x320-v21"
+        device="3.2&quot; QVGA (ADP2)"
+        devicestate="Portrait"
+        target="Android 5.0"
+        theme="@style/AppTheme" >
+    </preview>
+
+</previews>
