@@ -42,7 +42,7 @@ import javax.swing.JTextArea;
 * Furthermore contains the launcher.
 *
 * @author Jose Ignacio Madan Frias
-* @version 1.0 December 2, 2014
+* @version 1.0 January 11, 2015
 * 
 */
 
@@ -59,6 +59,7 @@ public class Main extends JFrame {
 	private JScrollPane scroll2 = new JScrollPane(textArea);
 	private JButton btnMakeProject;
 	private String current_dir = "";
+	private String default_dir = "";
 	private String arch = "";
 	private String os = "";
 	private String elevate = "";
@@ -145,8 +146,10 @@ public class Main extends JFrame {
     	arch = System.getProperty("os.arch");
 		if (arch.contains("86")) {
 			arch = "x86";
+			default_dir = "/Program Files/eAdventure";
 		} else {
 			arch = "x64";
+			default_dir = "/Program Files (x86)/eAdventure";
 		}
 		
 		// File & Directory chooser
@@ -157,7 +160,7 @@ public class Main extends JFrame {
 		if (os.contains("Windows")) {
 			FileNameExtensionFilter filter = new FileNameExtensionFilter("Ejecutables", "exe");
 			fileChooser.setFileFilter(filter);
-			fileChooser.setCurrentDirectory(new File("/Program Files/eAdventure"));
+			fileChooser.setCurrentDirectory(new File(default_dir));
 			current_dir = System.getProperty("user.home") + "/Documents/Mis proyectos de eAdventure";
 			directoryChooser.setCurrentDirectory(new File(current_dir));
 		} else {

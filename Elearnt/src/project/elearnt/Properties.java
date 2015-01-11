@@ -45,7 +45,7 @@ import android.widget.AdapterView.OnItemSelectedListener;
 * ProjectExists to modify (recreate, change, delete or send)
 *
 * @author Jose Ignacio Madan Frias
-* @version 1.0 November 27, 2014
+* @version 1.0 January 11, 2015
 * 
 */
 
@@ -176,21 +176,10 @@ public class Properties extends Activity {
 		textView = (TextView) findViewById(R.id.textView2);
 		
 		// Path
-		String[] sdcardExtNames = new String[] {"ext_card", "external_sd", "extsd"};
+		path_projects = Environment.getExternalStorageDirectory() + "/Projects";
+		dir = new File (path_projects);
+		dir.mkdirs();
 		
-		int n = 0;
-		
-		do {
-			path_projects = "/mnt/" + sdcardExtNames[n] + "/Projects";
-			dir = new File (path_projects);
-			n++;
-		} while ((n < sdcardExtNames.length) && (!dir.exists()));
-		
-		if (!dir.exists()) {
-			path_projects = Environment.getExternalStorageDirectory() + "/Projects";
-			dir = new File (path_projects);
-			dir.mkdirs();
-		}
 		
 		String msg = "<font color='white'>Aventuras guardadas en " + path_projects + "</font>";
 		Toast.makeText(getApplicationContext(), Html.fromHtml(msg), Toast.LENGTH_LONG).show();
