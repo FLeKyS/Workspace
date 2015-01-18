@@ -1,0 +1,879 @@
+/*
+ *  Copyright (C) 2014  Jose Ignacio Madan Frias
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * 
+*/
+package project.elearnt;
+
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.util.ArrayList;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.Bitmap.Config;
+import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.graphics.Matrix;
+import android.media.ExifInterface;
+import android.net.Uri;
+import android.os.Bundle;
+import android.provider.MediaStore;
+import android.text.Html;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
+import android.widget.AdapterView.OnItemSelectedListener;
+
+
+/**
+* This class responsible for create new scenes or correct the before scenes creates
+* between the options figures modify, delete and correct link scenes name
+*
+* @author Jose Ignacio Madan Frias
+* @version 1.0 December 6, 2014
+* 
+*/
+
+public class Scenes extends Activity {
+
+	// Action selection
+	private static int TAKE_PICTURE = 1;
+	private static int SELECT_PICTURE = 2;
+	private static int CORRECT_WRONG_LINKS = 3;
+	private static int CORRECT_SCENE_LINKS = 4;
+	
+	// Select option
+	private String image_option = "";
+	
+	// Edit text
+	private EditText editText1;
+	
+	// Text view
+	private TextView textView1;
+
+	// Buttons
+	private Button ok;
+	private Button finish;
+	private Button search;
+	
+	// Spinner
+	private Spinner spinner2;
+	
+	// Radio Buttons
+	private RadioButton rbtnFull;
+	private RadioButton rbtnGallery;
+	private RadioGroup rg;
+	
+	// Image
+	private String path_dir = "";
+	private String name = "";
+	private Bitmap scaled;
+	
+	// List scene node
+	private int idSceneX;
+	private int idSceneY;
+	
+	// Check
+	private File dir = null;
+	private String[] nameFiles;
+	private String[] tokens;
+	private ArrayList<String> sceneNames;
+	
+	private boolean save = false;
+	private boolean first = true;
+	private boolean error = false;
+
+	
+	/**
+	 * Than itself name indicated, throw new activity
+	 * 
+	 * The activity throw is Exits and put in the
+	 * bundle path_dir, name and idScene
+	 * 
+	 */
+	public void startNewActivity() {
+	      Intent i = new Intent(this, Exits.class);
+	      i.putExtra("path_dir", path_dir);
+	      i.putExtra("name", name);
+	      
+	      // Create scene node, if not exists
+	      tokens = name.split("[.]");
+	      if (!ListScene.existsNode(tokens[0])) {
+		      idSceneX = ListScene.getIdSceneX();
+		      idSceneY = ListScene.getIdSceneY();
+		      
+		      SceneNode sn = new SceneNode (tokens[0], idSceneX, idSceneY);
+		    	  
+	    	  // Add scene node or modify if exists
+		      ListScene.addNode(sn);
+		  }
+	      
+	      // Save list scenes
+	      if (save) {
+	    	  ListScene.saveTempListScene(path_dir + "/");
+	      }
+	      
+	      startActivity(i);
+	}
+	
+	/**
+	 * Than itself name indicated, throw new activity
+	 * 
+	 * @param cls name of new activity to run
+	 * 
+	 */
+	public void startNewActivity2(Class<?> cls) {
+	      Intent i = new Intent(this, cls);
+	      i.putExtra("path_dir", path_dir);
+	      
+	      i.putExtra("name", name);
+	      
+	      startActivity(i);
+	}
+	
+	/**
+	 * Clear radio button group
+	 * 
+	 */
+	public void resetRadioButtons() {
+		
+		if (image_option.equals("Full")) {
+			rbtnFull.setChecked(false);
+			image_option = "";
+		} else if (image_option.equals("Gallery")) {
+			rbtnGallery.setChecked(false);
+			image_option = "";
+		} else {
+			rbtnFull.setChecked(false);
+			rbtnGallery.setChecked(false);
+		}
+		
+		rg.clearCheck();
+	}
+	
+	/**
+	 * Get image from gallery or take a picture depend of the option
+	 * select
+	 * 
+	 * @param sceneName the name of the scene in formats (name.jpg)
+	 * 
+	 */
+	public void getImage(String sceneName) {
+		// Default values
+		Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+		int code = TAKE_PICTURE;
+		
+		if (image_option.equals("Full")) {
+			Uri output = Uri.fromFile(new File(path_dir, name));
+			intent.putExtra(MediaStore.EXTRA_OUTPUT, output);
+		} else {
+			intent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+			code = SELECT_PICTURE;
+		}
+		
+		// Start the corresponding activity
+		startActivityForResult(intent, code);
+	}
+	
+	/**
+	 * Correct the exits from exits list, for this throw new activity
+	 * (CorrectLinkScene)
+	 * 
+	 * @param resquestCode operation type
+	 * 
+	 */
+	public void correctLinkScenes (int requestCode) {
+		ListLinkScene lls;
+		
+		for (int i = 0; i < ListScene.getListScenes().size(); i++) {
+			
+			// If exist error name Scene Link
+			if (ListScene.existsErrorLinkSceneName (i, sceneNames)) {
+				
+				lls = ListScene.getListScenes().get(i).getExits();
+				
+				for (int j = 0; j < lls.getSize(); j++) {
+					
+					if(!sceneNames.contains(lls.getLinkSceneNode(j).getLinkSceneName())) {
+						// Correct the Scene Link Name
+					    Intent intent = new Intent(getApplicationContext(), CorrectLinkScene.class);
+					    intent.putExtra("path_dir", path_dir);
+					    intent.putExtra("name", ListScene.getListScenes().get(i).getSceneName());
+					    intent.putExtra("idLinkScene", j);
+					    
+					    startActivityForResult(intent, requestCode);
+					}
+				}
+			}
+		}
+	}
+	
+	/**
+	 * List the scene name contains in the project directory
+	 * 
+	 * return number of scenes
+	 * 
+	 */
+	private int listScenesName() {
+		
+		// Images names
+		dir = new File(path_dir);
+        
+        // List the directory
+        nameFiles = dir.list();
+        
+        // Reset
+        if (sceneNames == null) {
+        	sceneNames = new ArrayList<String>();
+        } else {
+        	sceneNames.clear();
+        }
+        
+        // Add name files to sceneNames
+        if (nameFiles != null) {
+            for (int i = 0; i < nameFiles.length; i++) {
+            	tokens = nameFiles[i].split("[.]");
+            	
+            	if ((tokens[1].equals("jpg")) && (ListScene.existsNode(tokens[0]))) {
+            		sceneNames.add(tokens[0]);
+            	}
+            }
+        }
+        
+        return sceneNames.size();
+	}
+	
+	/**
+	 * Search if exists scenes in the project
+	 * 
+	 * @return true if exists at least one scene in the project
+	 * 
+	 */
+	public boolean existsScenesName() {
+        
+        return (listScenesName() != 0);
+	}
+	
+	/**
+	 * This method change the visibility of the
+	 * screen components, like radioGroup, textView, button
+	 * and editText depend on the option select in the spinner 
+	 * (obtain, modify, delete or correct link scenes)
+	 * 
+	 */
+	public void setVisibility() {
+		listScenesName();
+		
+		if (String.valueOf(spinner2.getSelectedItem()).equals("Obtener")) {
+			rg.setVisibility(View.VISIBLE);
+			editText1.setVisibility(View.VISIBLE);
+			textView1.setVisibility(View.VISIBLE);
+			search.setVisibility(View.INVISIBLE);
+		} else if (String.valueOf(spinner2.getSelectedItem()).equals("Modificar")) {
+			if (existsScenesName()) {
+				rg.setVisibility(View.VISIBLE);
+				editText1.setVisibility(View.VISIBLE);
+				textView1.setVisibility(View.VISIBLE);
+				search.setVisibility(View.VISIBLE);
+			} else {
+				rg.setVisibility(View.INVISIBLE);
+				editText1.setVisibility(View.INVISIBLE);
+				textView1.setVisibility(View.INVISIBLE);
+				search.setVisibility(View.INVISIBLE);
+			}
+		} else {
+			rg.setVisibility(View.INVISIBLE);
+			editText1.setVisibility(View.INVISIBLE);
+			if (existsScenesName()) {
+				textView1.setVisibility(View.VISIBLE);
+				search.setVisibility(View.VISIBLE);
+			} else {
+				textView1.setVisibility(View.INVISIBLE);
+				search.setVisibility(View.INVISIBLE);
+			}
+		}
+		
+		// Reset
+		resetRadioButtons();
+	}
+
+	
+	/**
+	 * Obtain default name scene
+	 * 
+	 * @return name of the scene by default (1..N)
+	 * 
+	 */
+	public String getDefaultName() {
+		String sceneName = "1";
+		
+		int i = 1;
+		
+		while (sceneNames.contains(sceneName)) {
+			i++;
+			sceneName = Integer.toString(i);
+		}
+		
+		return sceneName;
+	}
+	
+	
+	/**
+	 * Create the basic configuration on the screen,
+	 * with three buttons for finish, do action and search before
+	 * scenes create, edit text to put name of the scene, radio group 
+	 * to select between get from gallery or pick a photo, and for last,
+	 * a spinner with options like get, modify, delete and corrects link
+	 * scenes name
+	 * 
+	 * @param savedInstanceState for save values of the activity
+	 * 
+	 */
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.scenes);
+
+		// Buttons
+		ok = (Button) findViewById(R.id.button3);
+		finish = (Button) findViewById(R.id.button2);
+		search = (Button) findViewById(R.id.button4);
+		
+		// Edit text
+		editText1 = (EditText) findViewById(R.id.editText2);
+		
+		// Text view
+		textView1 = (TextView) findViewById(R.id.textView1);
+		
+		// Path directory
+		Bundle bundle = getIntent().getExtras();
+	    path_dir = bundle.getString("path_dir");
+	    
+	    // Spinner
+ 		spinner2 = (Spinner) findViewById(R.id.spinner2);
+ 		
+ 		// Radio Group
+ 		rg = (RadioGroup) findViewById(R.id.rdG);
+ 		
+ 		// Radio Button
+ 		rbtnFull = (RadioButton)findViewById(R.id.radbtnFull);
+		rbtnGallery = (RadioButton)findViewById(R.id.radbtnGall);
+		
+		spinner2.setOnItemSelectedListener(new OnItemSelectedListener() {
+		    @Override
+		    public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+		    	ok.setTextColor(Color.WHITE);
+		    	setVisibility();
+		    }
+
+		    @Override
+		    public void onNothingSelected(AdapterView<?> parentView) {}
+		});
+		
+		search.setOnClickListener(new View.OnClickListener() {
+  			@Override
+  			public void onClick(View view) {
+  				if (existsScenesName()) {
+  					// Reset
+  					name = "";
+  					
+  					startNewActivity2(ScenesGallery.class);
+  				} else {
+  					String msg = "<font color='white'>No existen escenas creadas.</font>";
+	  				Toast.makeText(getApplicationContext(), Html.fromHtml(msg), Toast.LENGTH_LONG).show();
+  				}
+  				
+  				// Reset
+  				resetRadioButtons();
+  			}
+  		});
+		
+		ok.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				
+				if (String.valueOf(spinner2.getSelectedItem()).equals("Obtener")) {
+					
+					// Get scene
+					// Full image select
+					if (rbtnFull.isChecked()) {	
+						image_option = "Full";
+						
+					// Gallery image select
+					} else if (rbtnGallery.isChecked()){
+						image_option = "Gallery";
+					} else {
+						image_option = "";
+					}
+					
+			        
+			        if (!image_option.equals("")) {
+				 		// Image name
+			    	    name = editText1.getText().toString();
+			    	    
+			    	    // List of scene names
+		  				listScenesName();
+		  				
+		  				if (!sceneNames.contains(name)) {
+		  					
+			  				name = name + ".jpg";
+				    	    
+				    	    if (name.equals(".jpg")) {
+				    	    	
+				    	    	// Default name
+			    	    		name = getDefaultName();
+			    	    		
+			    	    		String msg = "<font color='white'>Nombre de la escena por defecto: " + name + "</font>";
+		  	  					Toast.makeText(getApplicationContext(), Html.fromHtml(msg), Toast.LENGTH_LONG).show();
+		  	  					
+		  	  					name += ".jpg";
+				    	    }
+							
+							save = true;
+							
+							getImage(name);
+							
+							// Reset
+							ScenesGallery.sceneNameSelect = "";
+							
+		  				} else {
+		  					ok.setTextColor(Color.RED);
+		  					String msg = "<font color='white'>El nombre de la escena ya esta utilizado.</font>";
+		  	  				Toast.makeText(getApplicationContext(), Html.fromHtml(msg), Toast.LENGTH_LONG).show();
+		  				}
+							
+			        } else {
+			        	ok.setTextColor(Color.RED);
+			        	String msg = "<font color='white'>Seleccione Tomar Imagen u Obtener de la galeria.</font>";
+	  	  				Toast.makeText(getApplicationContext(), Html.fromHtml(msg), Toast.LENGTH_LONG).show();
+			        }
+			    
+				} else if (String.valueOf(spinner2.getSelectedItem()).equals("Modificar")) {
+					
+					// Rename scene
+					name = ScenesGallery.sceneNameSelect;
+					String newSceneName = "";
+					newSceneName = editText1.getText().toString();
+					
+					if (!name.equals("")) {
+						save = false;
+						
+						// List of scene names
+		  				listScenesName();
+						
+						if ((!newSceneName.equals("")) && (!newSceneName.equals(name)) &&
+								(!sceneNames.contains(newSceneName))) {
+							
+							File scene = new File (path_dir + "/" + name + ".jpg");
+							
+							if (scene.renameTo(new File (path_dir + "/" + editText1.getText().toString() + ".jpg"))) {
+								// Rename scene
+								ListScene.modifyNode(name, newSceneName);
+								
+								// Update Link Scenes
+								ListScene.updateLinkScenes(name, newSceneName);
+								
+								name = newSceneName;
+								save = true;
+							}
+						}
+						
+						if (sceneNames.contains(newSceneName)) {
+							String msg = "<font color='white'>El nombre de la escena ya esta utilizado.</font>";
+		  					Toast.makeText(getApplicationContext(), Html.fromHtml(msg), Toast.LENGTH_LONG).show();
+						} else {
+							String msg = "<font color='white'>Nombre de la escena: " + name + "</font>";
+	  	  					Toast.makeText(getApplicationContext(), Html.fromHtml(msg), Toast.LENGTH_LONG).show();
+						}
+						
+						// Get scene
+						// Full image select
+						if (rbtnFull.isChecked()) {	
+							image_option = "Full";
+							
+						// Gallery image select
+						} else if (rbtnGallery.isChecked()){
+							image_option = "Gallery";
+						} else {
+							image_option = "";
+						}
+						
+						if (!image_option.equals("")) {
+							// Delete links nodes
+							ListScene.deleteLinkNodes(name);
+							
+							save = true;
+							
+							// Get image
+							name = name + ".jpg";
+							getImage(name);
+						} else {
+							ok.setTextColor(Color.GREEN);
+							name = name + ".jpg";
+							startNewActivity ();
+						}
+						
+						// Reset
+		  				resetRadioButtons();
+		  				ScenesGallery.sceneNameSelect = "";
+						
+					} else {
+						ok.setTextColor(Color.RED);
+						if (search.getVisibility() == View.INVISIBLE) {
+  		        			String msg = "<font color='white'>No existen escenas creadas.</font>";
+	  	  					Toast.makeText(getApplicationContext(), Html.fromHtml(msg), Toast.LENGTH_LONG).show();
+  		        		} else {
+							String msg = "<font color='white'>Por favor, seleccione la escena a modificar en la lista.</font>";
+		  					Toast.makeText(getApplicationContext(), Html.fromHtml(msg), Toast.LENGTH_LONG).show();
+  		        		}
+					}
+					
+				} else if (String.valueOf(spinner2.getSelectedItem()).equals("Corregir enlaces")) {
+					
+	  		        // Link Scenes name and text
+  		        	name = ScenesGallery.sceneNameSelect;
+  		        	
+  		        	if (!name.equals("")) {
+  		        		if (ListScene.existsLinkList(ListScene.getIdScene(name))) {
+  		        			ok.setTextColor(Color.GREEN);
+  		        			ListScene.correctLinkScenes(name, path_dir, getApplicationContext());
+  		        		} else {
+  		        			ok.setTextColor(Color.RED);
+	  		        		String msg = "<font color='white'>No existen enlaces creados.</font>";
+	  	  					Toast.makeText(getApplicationContext(), Html.fromHtml(msg), Toast.LENGTH_LONG).show();
+  		        		}
+  		        		
+  		        	} else {
+  		        		ok.setTextColor(Color.RED);
+  		        		if (search.getVisibility() == View.INVISIBLE) {
+  		        			String msg = "<font color='white'>No existen escenas creadas.</font>";
+	  	  					Toast.makeText(getApplicationContext(), Html.fromHtml(msg), Toast.LENGTH_LONG).show();
+  		        		} else {
+  		        			String msg = "<font color='white'>Por favor, seleccione la escena a corregir en la lista.</font>";
+	  	  					Toast.makeText(getApplicationContext(), Html.fromHtml(msg), Toast.LENGTH_LONG).show();
+  		        		}
+  		        	}
+	  		        	
+				} else {
+					
+					// Delete scene
+	  				name = ScenesGallery.sceneNameSelect;
+	  				
+	  				if (!name.equals("")) {
+	  					// Delete image
+	  					File scene = new File (path_dir, name + ".jpg");
+	  					scene.delete();
+	  					
+  						// Delete scene node
+  						ListScene.deleteNode (name);
+  						
+  						// Update Link Scenes
+						ListScene.updateLinkScenes(name);
+  						
+  						// Save
+  						ListScene.saveTempListScene(path_dir + "/");
+  	  					
+  	  					// Reset
+  						ScenesGallery.sceneNameSelect = "";
+  	  					
+  	  					ok.setTextColor(Color.GREEN);
+	  					
+	  				} else {
+	  					ok.setTextColor(Color.RED);
+	  					if (search.getVisibility() == View.INVISIBLE) {
+  		        			String msg = "<font color='white'>No existen escenas creadas.</font>";
+	  	  					Toast.makeText(getApplicationContext(), Html.fromHtml(msg), Toast.LENGTH_LONG).show();
+  		        		} else {
+		  					String msg = "<font color='white'>Por favor, seleccione la escena a eliminar en la lista.</font>";
+	  	  					Toast.makeText(getApplicationContext(), Html.fromHtml(msg), Toast.LENGTH_LONG).show();
+  		        		}
+	  				}
+
+				}
+				
+				resetRadioButtons();
+			}
+		});
+		
+		finish.setOnClickListener(new View.OnClickListener() {
+  			@Override
+  			public void onClick(View view) {
+  				first = true;
+  				
+  				// List of scene names
+  				listScenesName();
+  				
+  				// Correct Scenes
+  		        ListScene.correctScenes(sceneNames);
+  				
+  				// Create the files project.xml and chapter1.xml
+  				if (ListScene.getCorrect(sceneNames)) {
+	  		        ListScene.createProjectXml(path_dir);
+	  		        ListScene.createChapter1Xml(path_dir);
+	  		        
+	  		        // Save list scenes
+	  			    ListScene.saveTempListScene(path_dir + "/");
+	  		        
+	  		        // Throw Finish
+	  		        startNewActivity2(Finish.class);
+	  		        
+  				} else {
+  					// Correct Links Scenes
+  					correctLinkScenes(CORRECT_WRONG_LINKS);
+  				}
+  				
+  				// Reset
+  				ok.setTextColor(Color.WHITE);
+  				resetRadioButtons();
+  				ScenesGallery.sceneNameSelect = "";
+  			}
+  		});
+	}
+	
+	// Prohibited back button use	
+	/**
+	 * Override onBackPressed to prohibit it use, 
+	 * except when all links are corrects
+	 * 
+	 */
+	@Override
+	public void onBackPressed() {
+		first = true;
+		
+		// List of scene names
+		listScenesName();
+		
+		// Correct Scenes
+	    ListScene.correctScenes(sceneNames);
+			
+		if (ListScene.getCorrect(sceneNames)) {
+			// Create .xml files
+			ListScene.createProjectXml(path_dir);
+	        ListScene.createChapter1Xml(path_dir);
+	        
+	        // Save list scenes
+		    ListScene.saveTempListScene(path_dir + "/");
+			finish();
+			
+		} else {
+			// Must be repair links scenes
+			// Correct Links Scenes
+			correctLinkScenes(CORRECT_SCENE_LINKS);
+		}
+		
+		// Reset
+		resetRadioButtons();
+		ScenesGallery.sceneNameSelect = "";
+		ok.setTextColor(Color.WHITE);
+	}
+	
+	/**
+	 * Do action after intent start activity, in this case
+	 * get image from gallery or pick photo from camera,
+	 * furthermore, correct link scenes
+	 * 
+	 * @param requestCode option realized (take or select) picture or correct links scenes
+	 * @param resultCode the result of the action realized
+	 * @param data information about image (select picture option)
+	 * 
+	 */
+	@Override 
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		
+		FileOutputStream fos = null;
+		error = false;
+		
+		if (resultCode == RESULT_OK) {
+			
+			// Realize action code
+			if (requestCode == TAKE_PICTURE) {
+				
+				try {
+					// Create and configure BitmapFactory
+				    BitmapFactory.Options bounds = new BitmapFactory.Options();
+				    bounds.inJustDecodeBounds = true;
+				    BitmapFactory.decodeFile(path_dir + "/" + name, bounds);
+				    
+				    // Change quality
+				    BitmapFactory.Options options = new BitmapFactory.Options();
+				    options.inScaled = false;
+					options.inDither = false;
+					options.inPreferredConfig = Bitmap.Config.ARGB_8888;
+				    Bitmap bm = BitmapFactory.decodeFile(path_dir + "/" + name, options);
+				    
+//				    // Read EXIF Data
+//				    ExifInterface exif = null;
+//					exif = new ExifInterface(path_dir + "/" + name);
+//					
+//					// Get orientation
+//				    String orientString = exif.getAttribute(ExifInterface.TAG_ORIENTATION);
+//				    int orientation = orientString != null ? Integer.parseInt(orientString) : ExifInterface.ORIENTATION_NORMAL;
+//				    int rotationAngle = 0;
+//				    if (orientation == ExifInterface.ORIENTATION_ROTATE_90) rotationAngle = 90;
+//				    if (orientation == ExifInterface.ORIENTATION_ROTATE_180) rotationAngle = 180;
+//				    if (orientation == ExifInterface.ORIENTATION_ROTATE_270) rotationAngle = 270;
+//				    
+//				    // Rotate Bitmap
+//				    Matrix matrix = new Matrix();
+//				    matrix.setRotate(rotationAngle, (float) bm.getWidth() / 2, (float) bm.getHeight() / 2);
+//				    Bitmap rotatedBitmap = Bitmap.createBitmap(bm, 0, 0, bounds.outWidth, bounds.outHeight, matrix, true);
+				    
+				    // Scaled Bitmap
+					scaled = Bitmap.createScaledBitmap(bm, 800, 600, true);
+					
+				} catch (Exception e) {
+					error = true;
+					ok.setTextColor(Color.RED);
+					String msg = "<font color='white'>" + path_dir + "/" + name + "</font>";
+	  				Toast.makeText(getApplicationContext(), Html.fromHtml(msg), Toast.LENGTH_LONG).show();
+				} catch (OutOfMemoryError e1) {
+					error = true;
+					ok.setTextColor(Color.RED);
+					String msg = "<font color='white'>Memoria ocupada, espere un momento.</font>";
+	  				Toast.makeText(getApplicationContext(), Html.fromHtml(msg), Toast.LENGTH_LONG).show();
+				}
+			
+			// Image gallery
+			} else if (requestCode == SELECT_PICTURE) {
+				
+				Uri selectedImage = data.getData();
+				InputStream is;
+				
+				try {
+		            
+					// Load image
+					is = getContentResolver().openInputStream(selectedImage);
+					BufferedInputStream bis = new BufferedInputStream(is);
+					
+					// Change to RGB_565 to down memory usage
+				    BitmapFactory.Options options = new BitmapFactory.Options();
+				    options.inPreferredConfig = Config.RGB_565;
+					Bitmap bitmap = BitmapFactory.decodeStream(bis, null, options);
+					
+					scaled = Bitmap.createScaledBitmap(bitmap, 800, 600, true);
+					
+				} catch (Exception e) {
+					error = true;
+					ok.setTextColor(Color.RED);
+					String msg = "<font color='white'>Memoria ocupada, espere un momento.</font>";
+	  				Toast.makeText(getApplicationContext(), Html.fromHtml(msg), Toast.LENGTH_LONG).show();
+				} catch (OutOfMemoryError e1) {
+					error = true;
+					ok.setTextColor(Color.RED);
+					String msg = "<font color='white'>Memoria ocupada, espere un momento.</font>";
+	  				Toast.makeText(getApplicationContext(), Html.fromHtml(msg), Toast.LENGTH_LONG).show();
+				}
+				
+			} else if ((requestCode == CORRECT_WRONG_LINKS) || (requestCode == CORRECT_SCENE_LINKS)) {
+				
+				// List of scene names
+  				listScenesName();
+  				
+  				// Correct Scenes
+  		        ListScene.correctScenes(sceneNames);
+  				
+  				// Create the files project.xml and chapter1.xml
+  		        if (first) {
+	  				if (ListScene.getCorrect(sceneNames)) {
+	  					first = false;
+						ListScene.createProjectXml(path_dir);
+		  		        ListScene.createChapter1Xml(path_dir);
+		  		        
+		  		        // Save list scenes
+		  			    ListScene.saveTempListScene(path_dir + "/");
+		  		        
+		  		        // Throw Finish
+		  			    if (requestCode == CORRECT_WRONG_LINKS) {
+		  			    	finish.setTextColor(Color.WHITE);
+		  			    	startNewActivity2(Finish.class);
+		  			    } else {
+		  			    	finish();
+		  			    }
+	  				} else {
+	  					first = false;
+	  					String msg;
+	  					
+	  					if (requestCode == CORRECT_WRONG_LINKS) {
+	  						msg = "<font color='white'>Existen enlaces erroneos, pulse Finalizar de nuevo "
+	  								+ "y corrijalos.</font>";
+	  					} else {
+	  						msg = "<font color='white'>Existen enlaces erroneos, pulse atras de nuevo "
+	  								+ "y corrijalos.</font>";
+	  					}
+  	  					Toast.makeText(getApplicationContext(), Html.fromHtml(msg), Toast.LENGTH_LONG).show();
+	  				}
+  		        }
+			}
+			
+	        
+			if (((requestCode == TAKE_PICTURE) || (requestCode == SELECT_PICTURE)) && !error) {
+				try {
+		            
+					// Save image
+					fos = new FileOutputStream(path_dir + "/" + name);
+			        scaled.compress(Bitmap.CompressFormat.JPEG, 100, fos);
+			        fos.flush();
+			        
+				} catch (Exception e) {
+					ok.setTextColor(Color.RED);
+				} finally {
+					
+					try {
+		        		// Close file
+		        		if (null != fos) {
+		        			ok.setTextColor(Color.GREEN);
+		        			fos.close();
+		        			startNewActivity();
+		        		}
+		        		
+		        	} catch (Exception e3) {
+		        		ok.setTextColor(Color.RED);
+		        	}
+		        }
+			}
+			
+		} else {
+			
+			if (requestCode == CORRECT_WRONG_LINKS) {
+				if (first) {
+					first = false;
+					finish.setTextColor(Color.RED);
+					String msg = "<font color='white'>Existen enlaces erroneos, pulse Finalizar de nuevo "
+  							+ "y corrijalos.</font>";
+	  				Toast.makeText(getApplicationContext(), Html.fromHtml(msg), Toast.LENGTH_LONG).show();
+				}	
+			} else if (requestCode == CORRECT_SCENE_LINKS) {
+				if (first) {
+					first = false;
+					String msg = "<font color='white'>Existen enlaces erroneos, pulse atras de nuevo "
+								+ "y corrijalos.</font>";
+	  				Toast.makeText(getApplicationContext(), Html.fromHtml(msg), Toast.LENGTH_LONG).show();
+				}
+			}
+		}
+	}
+	
+}

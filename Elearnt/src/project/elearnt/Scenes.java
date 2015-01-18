@@ -53,7 +53,7 @@ import android.widget.AdapterView.OnItemSelectedListener;
 * between the options figures modify, delete and correct link scenes name
 *
 * @author Jose Ignacio Madan Frias
-* @version 1.0 December 6, 2014
+* @version 1.0 January 18, 2014
 * 
 */
 
@@ -90,6 +90,7 @@ public class Scenes extends Activity {
 	// Image
 	private String path_dir = "";
 	private String name = "";
+	private static String last_name = "";
 	private Bitmap scaled;
 	
 	// List scene node
@@ -189,6 +190,9 @@ public class Scenes extends Activity {
 		if (image_option.equals("Full")) {
 			Uri output = Uri.fromFile(new File(path_dir, name));
 			intent.putExtra(MediaStore.EXTRA_OUTPUT, output);
+			
+			// Save picture name
+			last_name = name;
 		} else {
 			intent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI);
 			code = SELECT_PICTURE;
@@ -711,6 +715,9 @@ public class Scenes extends Activity {
 			// Realize action code
 			if (requestCode == TAKE_PICTURE) {
 				
+				// Restore name
+				name = last_name;
+				
 				try {
 					// Create and configure BitmapFactory
 				    BitmapFactory.Options bounds = new BitmapFactory.Options();
@@ -747,7 +754,7 @@ public class Scenes extends Activity {
 				} catch (Exception e) {
 					error = true;
 					ok.setTextColor(Color.RED);
-					String msg = "<font color='white'>Memoria ocupada, espere un momento.</font>";
+					String msg = "<font color='white'>No se puede tomar la fotografia.</font>";
 	  				Toast.makeText(getApplicationContext(), Html.fromHtml(msg), Toast.LENGTH_LONG).show();
 				} catch (OutOfMemoryError e1) {
 					error = true;
@@ -875,5 +882,4 @@ public class Scenes extends Activity {
 			}
 		}
 	}
-	
 }

@@ -1,0 +1,148 @@
+/*
+ *  Copyright (C) 2014  Jose Ignacio Madan Frias
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * 
+*/
+package project.elearnt.server;
+
+import java.io.IOException;
+import java.net.InetAddress;
+import java.net.InetSocketAddress;
+import java.net.NetworkInterface;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.net.SocketAddress;
+import java.util.Collections;
+import java.util.Enumeration;
+import java.util.List;
+
+
+/**
+* This is the principal class of the server TCP,
+* generate a server socket and wait for connection,
+* once connect create a thread server to do the
+* correspondent operations
+*
+* @author Jose Ignacio Madan Frias
+* @version 1.0 November 25, 2014
+* 
+*/
+
+public class MultiThreadServer extends Thread {
+	
+	private String project_path;
+	public static String serverText;
+	
+	// Stop
+	private final int port = 12345;
+	private String ip = "127.0.0.1";
+	private boolean exit = false;
+	
+	/**
+	 * Stop multiThread Server
+	 */
+	public void stopMultiThreadServer() {
+		
+		exit = true;
+		
+		// Open the client connection
+		Socket socket = null;
+		SocketAddress addr = null;
+		
+		try {
+			addr = new InetSocketAddress(ip, port);
+			socket = new Socket();
+			socket.connect(addr, 1000);
+			socket.close();
+		} catch (Exception e) {}
+	}
+	
+	
+	/**
+	 * Modify constructor of multi thread server with one parameter
+	 * 
+	 * @param project_path wherein project be
+	 * 
+	 */
+	public MultiThreadServer (String project_path) {
+		this.project_path = project_path;
+	}
+	
+	
+	/**
+	 * Thread who create a server socket, wait for connection, and then
+	 * create a new thread for each connection realized
+	 * 
+	 */
+	public void run () {
+		ServerSocket serverSocket = null;
+		
+        try {
+        	InetAddress addr = null;
+        	
+        	// If system is Linux, list the interfaces and search IP
+        	if (System.getProperty("os.name").contains("Linux")) {
+	        	List<NetworkInterface> interfaces;
+	    	    interfaces = Collections.list(NetworkInterface.getNetworkInterfaces());
+	    	    for (NetworkInterface ni : interfaces) {
+	    	        if ((ni.isLoopback() == false) && ni.isUp() && (ni.getName().equals("wlan0"))) {
+	    	        	
+	    	        	for (Enumeration<InetAddress> e = ni.getInetAddresses(); e.hasMoreElements();) {
+	    	        		addr = e.nextElement();
+	    	        		String ip_aux = addr.toString();
+	    	        		String[] ip2 = ip_aux.split("/");
+	    	        		
+	    	        		if (ip2[1].startsWith("192.")) {
+	    	        			ip = ip2[1];
+	    	        			break;
+	    	        		}
+	    	        	}
+	
+	    	        }
+	    	    }
+	    	    
+        	} else {
+        		addr = InetAddress.getByName(InetAddress.getLocalHost().getHostName());
+        		System.out.println(addr);
+        		String ip_aux = addr.toString();
+        		String[] ip2 = ip_aux.split("/");
+        		ip = ip2[1];
+        	}
+        	
+        	serverSocket = new ServerSocket(port, 0, addr);
+			serverText = "La carpeta donde se encuentra el proyecto es " + project_path + "\n";
+			serverText += "La ip del servidor es " + serverSocket.getInetAddress().getHostAddress() + "\n";
+			serverText += "Esperando a recibir los ficheros" + "\n";
+			
+			Main.serverTextArea.setText(serverText);
+            
+            while(!exit) {
+                Socket connection = serverSocket.accept();
+                if (!exit) {
+	                Server s = new Server(connection, project_path);
+	                s.start();
+                }
+            }
+            
+            // Close connection
+            serverSocket.close();
+        } catch(IOException e){
+            try {
+            	// Close connection
+				serverSocket.close();
+			} catch (Exception e1) {}
+        }
+    }
+}

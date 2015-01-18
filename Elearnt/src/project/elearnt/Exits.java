@@ -49,7 +49,7 @@ import android.widget.Toast;
 * draw the selection area for create an exit
 *
 * @author Jose Ignacio Madan Frias
-* @version 1.0 December 16, 2014
+* @version 1.0 January 18, 2014
 * 
 */
 
@@ -252,16 +252,16 @@ public class Exits extends Activity implements Runnable {
       			
   			String msg = "";
   			
-  			for (int i = 0; i < 8; i++) {
+  			for (int i = 0; i < 4; i++) {
   				if (i == 0) {
   					msg = "<font color='white'>Con un dedo fijo, mueva el otro para ampliar la zona que "
   							+ "desee.</font>";
-  				} else if (i == 2) {
+  				} else if (i == 1) {
   					msg = "<font color='white'>Presione dos veces seguidas dentro del area para crear "
 		        				+ "la salida.</font>";
-  				} else if (i == 4) {
+  				} else if (i == 2) {
   					msg = "<font color='white'>Mueva los dos dedos a la vez para hacer zoom.</font>";
-  				} else if (i == 6) {
+  				} else if (i == 3) {
   					msg = "<font color='white'>Presione atras para finalizar.</font>";
   				}
   				
